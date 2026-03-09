@@ -3,14 +3,12 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    [SerializeField] private int damage = 1;
-
     // Called directly from the Visual Scripting graph
-    public void Attack(GameObject target)
+    // Damage is passed in from the graph, keeping this script generic
+    public void Attack(GameObject target, int damage)
     {
         IDamageable damageable = target.GetComponent<IDamageable>();
         damageable?.TakeDamage(damage);
-        
-        Debug.Log("Damage Done");
+        Debug.Log("Damage Dealt: " + damage);
     }
 }
