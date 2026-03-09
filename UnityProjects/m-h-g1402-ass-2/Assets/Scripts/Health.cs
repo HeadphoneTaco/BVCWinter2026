@@ -1,13 +1,13 @@
 using System;
+using Interfaces;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class Health : MonoBehaviour, IDamageable
 {
     [SerializeField] private int maxHealth = 5;
     
     private int _currentHealth;
 
-    // Any UI or system can listen to these
     public event Action<int, int> OnHealthChanged; // (currentHealth, maxHealth)
     public event Action OnDeath;
 
@@ -37,7 +37,12 @@ public class Health : MonoBehaviour
         OnHealthChanged?.Invoke(_currentHealth, maxHealth);
     }
 
-    // Handy getters in case something needs to read health directly
+    public void ResetHealth()
+    {
+        _currentHealth = maxHealth;
+        OnHealthChanged?.Invoke(_currentHealth, maxHealth);
+    }
+
     public int GetCurrentHealth() => _currentHealth;
     public int GetMaxHealth() => maxHealth;
 }
