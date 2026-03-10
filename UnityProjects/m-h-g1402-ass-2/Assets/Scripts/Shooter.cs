@@ -9,7 +9,7 @@ public class Shooter : MonoBehaviour
     
     [SerializeField] private float shootForce;
 
-    private GameObject _arrow;
+    private GameObject _projectile;
     
     private void OnEnable()
     {
@@ -24,10 +24,10 @@ public class Shooter : MonoBehaviour
 
     private void Shoot(InputAction.CallbackContext context)
     {
-        //Create a new arrow
-        _arrow = Instantiate(shootObject, shootPoint.position, shootPoint.rotation);
+        //Create a new yeetable object
+        _projectile = Instantiate(shootObject, shootPoint.position, shootPoint.rotation);
         
         //Apply a force
-        _arrow.GetComponent<Rigidbody>().AddForce(shootForce * shootPoint.forward);
+        _projectile.GetComponent<Rigidbody>().AddForce(shootForce * shootPoint.forward);
     }
 }
