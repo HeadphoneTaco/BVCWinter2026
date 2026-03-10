@@ -1,5 +1,72 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1434592221587635229
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5448990467413351986}
+  - component: {fileID: 2055750172827311738}
+  - component: {fileID: 5831837568835028351}
+  m_Layer: 0
+  m_Name: SwordSwing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5448990467413351986
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434592221587635229}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4054450840646282258}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2055750172827311738
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434592221587635229}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5831837568835028351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434592221587635229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d7f3ed01e25a3842b891012f34f6fef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!1 &5032790790816400177
 GameObject:
   m_ObjectHideFlags: 0
@@ -20,7 +87,7 @@ GameObject:
   - component: {fileID: 6762911097301475531}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,16 +155,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   playerCamera: {fileID: 0}
-  moveSpeed: 100
+  moveSpeed: 10
   rotationSpeed: 10
   gravity: -10
   jumpVelocity: 5
-  groundCheckOffset: {x: 0, y: -1, z: 0}
+  groundCheckOffset: {x: 0, y: -0.8, z: 0}
   groundCheckDistance: 0.2
   groundCheckRadius: 0.2
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
 --- !u!143 &2958385951572255048
 CharacterController:
   m_ObjectHideFlags: 0
@@ -230,7 +297,7 @@ MonoBehaviour:
     m_Flags: 0
   shootPoint: {fileID: 2045433578039114506}
   shootObject: {fileID: 5458347707898549213, guid: 04e292a2472e3e9449112e3a5e959cfc, type: 3}
-  shootForce: 500
+  shootForce: 1000
 --- !u!114 &6762911097301475531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1017,7 +1084,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -6824373242536121958, guid: bd736a205bc8dd8479dd238d14236851, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5448990467413351986}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bd736a205bc8dd8479dd238d14236851, type: 3}
       insertIndex: -1
@@ -1053,5 +1123,10 @@ Animator:
 --- !u!4 &2198882805780849251 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bd736a205bc8dd8479dd238d14236851, type: 3}
+  m_PrefabInstance: {fileID: 1805584183070115208}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4054450840646282258 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -6824373242536121958, guid: bd736a205bc8dd8479dd238d14236851, type: 3}
   m_PrefabInstance: {fileID: 1805584183070115208}
   m_PrefabAsset: {fileID: 0}

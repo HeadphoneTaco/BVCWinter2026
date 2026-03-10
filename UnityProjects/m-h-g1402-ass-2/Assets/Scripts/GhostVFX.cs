@@ -1,9 +1,5 @@
 using UnityEngine;
 
-// Attach to a GameObject with a SpriteRenderer.
-// Floats upward and fades out, then destroys itself.
-// In Unity: create a GameObject, add SpriteRenderer, 
-// assign your ghost PNG as a sprite, add this component.
 public class GhostVFX : MonoBehaviour
 {
     [SerializeField] private float floatSpeed = 2f;
@@ -28,13 +24,19 @@ public class GhostVFX : MonoBehaviour
         // Float upward
         transform.position += Vector3.up * floatSpeed * Time.deltaTime;
 
-        // Always face the camera (billboard effect)
-        transform.forward = _mainCamera.transform.forward;
+        // Billboard - face toward camera, not away from it
+        transform.LookAt(
+            transform.position + _mainCamera.transform.rotation * Vector3.forward,
+            _mainCamera.transform.rotation * Vector3.up
+        );
 
         // Fade out
-        Color color = _spriteRenderer.color;
-        color.a = Mathf.Lerp(1f, 0f, _timer / lifetime);
-        _spriteRenderer.color = color;
+        if (_spriteRenderer != null)
+        {
+            Color color = _spriteRenderer.color;
+            color.a = Mathf.Lerp(1f, 0f, _timer / lifetime);
+            _spriteRenderer.color = color;
+        }
 
         if (_timer >= lifetime)
         {

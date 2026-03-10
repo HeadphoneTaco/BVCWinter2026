@@ -15,6 +15,8 @@ public class RespawnManager : MonoBehaviour
     [Space(10)]
     [SerializeField] private float deathDelay = 2f;
 
+    private GameObject _activeGhost;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -51,26 +53,33 @@ public class RespawnManager : MonoBehaviour
             playerAnimator.SetTrigger("Death");
         }
 
-        // Spawn ghost VFX at player position
+        // Spawn ghost and keep a reference to it
         if (ghostPrefab != null)
         {
-            Instantiate(ghostPrefab, playerController.transform.position, Quaternion.identity);
+            _activeGhost = Instantiate(ghostPrefab, playerController.transform.position, Quaternion.identity);
         }
 
-        // Wait for death delay
         yield return new WaitForSeconds(deathDelay);
+
+        // Clean up ghost before respawning
+        if (_activeGhost != null)
+        {
+            Destroy(_activeGhost);
+        }
 
         // Teleport to spawn point
         playerController.transform.position = activeSpawnPoint.transform.position;
 
         // Reset health
         playerHealth.ResetHealth();
+        
+        // Reset Animation
+        playerAnimator.SetTrigger("Respawn");
 
         // Re-enable player
         playerController.enabled = true;
     }
 
-    // Called by CheckpointTrigger when player hits a checkpoint
     public void SetSpawnPoint(SpawnPoint newSpawnPoint)
     {
         activeSpawnPoint = newSpawnPoint;
