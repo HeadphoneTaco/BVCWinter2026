@@ -82,12 +82,6 @@ public class PlayerController : MonoBehaviour
             OnJumpEvent?.Invoke();
         }
     }
-
-    public void ReverseGravity()
-    {
-        gravity = 9.8f;
-    }
-
     private void CalculateMovement()
     {
         _camForward = playerCamera.transform.forward;
