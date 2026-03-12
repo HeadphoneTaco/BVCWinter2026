@@ -6,14 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    //Input
+    [SerializeField] private MouseBehavior mouseBehavior;
+    [SerializeField] private InputAction pauseInput;
+    
     public static GameManager Instance;
     
     public enum GameState { Playing, Paused, Win, Lose }
     public GameState CurrentState { get; private set; }
-
-    [SerializeField] private MouseBehavior mouseBehavior;
-    [SerializeField] private InputAction pauseInput;
-    
     // Other scripts listen to these to show/hide their UI
     public event Action OnGamePaused;
     public event Action OnGameResumed;
@@ -29,6 +29,11 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
     }
+    
+    private void Start()
+    {
+        SetState(GameState.Playing);
+    }
     private void OnEnable()
     {
         pauseInput.Enable();
@@ -40,18 +45,14 @@ public class GameManager : MonoBehaviour
         pauseInput.performed -= OnPausePerformed;
         pauseInput.Disable();
     }
-
-    private void Start()
-    {
-        SetState(GameState.Playing);
-    }
-
+    
     private void OnPausePerformed(InputAction.CallbackContext context)
     {
         if (CurrentState == GameState.Playing) Pause();
         else if (CurrentState == GameState.Paused) Resume();
     }
 
+#region GameStates
     public void Pause()
     {
         SetState(GameState.Paused);
@@ -83,6 +84,7 @@ public class GameManager : MonoBehaviour
         mouseBehavior.ShowMouse(true);
         OnGameLost?.Invoke();
     }
+#endregion
 
     public void RestartGame()
     {

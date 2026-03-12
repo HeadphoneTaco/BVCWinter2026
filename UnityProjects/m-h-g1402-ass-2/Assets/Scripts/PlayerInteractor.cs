@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerInteractor : MonoBehaviour
 {
-    
     //Input
     [SerializeField] private InputAction interactionInput;
     

@@ -626,7 +626,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 302836342}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.117500156, y: 0.0021089371, z: -0.0002495295, w: 0.9930706}
+  m_LocalRotation: {x: 0.11750023, y: 0.001860893, z: -0.00022018093, w: 0.99307114}
   m_LocalPosition: {x: 0, y: 4.1, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1141,7 +1141,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 296, y: -96}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 205, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &550091432
 MonoBehaviour:
@@ -2281,7 +2281,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048887643}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.11750015, y: 0.0021089367, z: -0.00024952946, w: 0.9930706}
+  m_LocalRotation: {x: 0.1175002, y: 0.0018608926, z: -0.00022018082, w: 0.99307114}
   m_LocalPosition: {x: 0, y: 4.1, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2793,6 +2793,7 @@ GameObject:
   - component: {fileID: 1376344417}
   - component: {fileID: 1376344416}
   - component: {fileID: 1376344418}
+  - component: {fileID: 1376344419}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -2877,6 +2878,19 @@ MonoBehaviour:
   resumeButton: {fileID: 1325984539}
   restartButton: {fileID: 1084721148}
   mainMenuButton: {fileID: 550091432}
+  canvasGroup: {fileID: 1376344419}
+--- !u!225 &1376344419
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376344414}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1477883714
 PrefabInstance:
   m_ObjectHideFlags: 0

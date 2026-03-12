@@ -5,9 +5,11 @@ namespace UI
 {
     public class PauseMenu : MonoBehaviour
     {
+        //Input
         [SerializeField] private Button resumeButton;
         [SerializeField] private Button restartButton;
         [SerializeField] private Button mainMenuButton;
+        [SerializeField] private CanvasGroup canvasGroup;
 
         private void Start()
         {
@@ -15,8 +17,21 @@ namespace UI
             restartButton.onClick.AddListener(OnRestartClicked);
             mainMenuButton.onClick.AddListener(OnMainMenuClicked);
 
-            // Hide immediately - GameManager controls visibility
-            gameObject.SetActive(false);
+            Hide();
+        }
+
+        private void Show()
+        {
+            canvasGroup.alpha = 1f;
+            canvasGroup.interactable = true;
+            canvasGroup.blocksRaycasts = true;
+        }
+
+        private void Hide()
+        {
+            canvasGroup.alpha = 0f;
+            canvasGroup.interactable = false;
+            canvasGroup.blocksRaycasts = false;
         }
 
         private void OnEnable()
@@ -30,10 +45,7 @@ namespace UI
             GameManager.Instance.OnGamePaused -= Show;
             GameManager.Instance.OnGameResumed -= Hide;
         }
-
-        private void Show() => gameObject.SetActive(true);
-        private void Hide() => gameObject.SetActive(false);
-
+        
         private void OnResumeClicked() => GameManager.Instance.Resume();
         private void OnRestartClicked() => GameManager.Instance.RestartGame();
         private void OnMainMenuClicked() => GameManager.Instance.LoadMainMenu();
