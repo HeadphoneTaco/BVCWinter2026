@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Camera playerCamera;
     [SerializeField] private float moveSpeed = 2;
+    [SerializeField] private float accelerationSpeed = 20f;
+    [SerializeField] private float decelerationSpeed = 25f;
+    
     [SerializeField] private float rotationSpeed = 10;
     [SerializeField] public float gravity = -9.8f;
     [SerializeField] private float jumpVelocity = 10f;
@@ -28,6 +31,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 _moveDirection;
     private CharacterController _characterController;
     private Quaternion _targetRotation;
+    private Vector3 _currentHorizontalVelocity;
     private Vector3 _velocity;
     private bool _isGrounded;
 
@@ -102,7 +106,16 @@ public class PlayerController : MonoBehaviour
         }
         
         //Calculate gravity
-        _velocity = Vector3.up * _velocity.y + _moveDirection * moveSpeed;
+        Vector3 targetHorizontalVelocity = _moveDirection * moveSpeed;
+        
+        float rate = _moveDirection.sqrMagnitude > 0.01f ? accelerationSpeed : decelerationSpeed;
+        _currentHorizontalVelocity = Vector3.MoveTowards(
+            _currentHorizontalVelocity, 
+            targetHorizontalVelocity, 
+            rate * Time.deltaTime
+        );
+        
+        _velocity = _currentHorizontalVelocity + Vector3.up * _velocity.y;
         _velocity.y += gravity * Time.deltaTime;
     }
 
