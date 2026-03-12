@@ -1,16 +1,18 @@
-using System;
 using UnityEngine;
 
-public class MouseBehavior : MonoBehaviour
+namespace UI
 {
-    private void Start()
+    public class MouseBehavior : MonoBehaviour
     {
-        ShowMouse(false);
-    }
+        private void Start()
+        {
+            ShowMouse(false);
+        }
 
-    public void ShowMouse(bool value)
-    {
-        Cursor.visible = value;
-        Cursor.lockState = value ? CursorLockMode.None : CursorLockMode.Locked;
+        public void ShowMouse(bool value)
+        {
+            Cursor.visible = value;
+            Cursor.lockState = value ? CursorLockMode.None : CursorLockMode.Locked;
+        }
     }
 }
