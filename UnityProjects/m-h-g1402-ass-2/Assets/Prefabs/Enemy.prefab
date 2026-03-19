@@ -150,6 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b288e6093994f694ba5a5b2bde5663b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnPoint: {fileID: 4157815152243708519, guid: b0f2f78d231a3544fbfffa5c867bfbd0, type: 3}
+  health: {fileID: 6867689874193174619}
 --- !u!1 &1603914172871285486
 GameObject:
   m_ObjectHideFlags: 0
