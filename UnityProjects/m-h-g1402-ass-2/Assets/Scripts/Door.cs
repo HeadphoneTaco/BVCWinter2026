@@ -2,19 +2,11 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    [SerializeField] private Animator doorAnimator;
-    private static readonly int OpenParam = Animator.StringToHash("Open");
+    private bool _isOpen = false;
 
-    public void Open()
+    public void Toggle()
     {
-        if (doorAnimator != null)
-        {
-            doorAnimator.SetTrigger(OpenParam);
-        }
-        else
-        {
-            // Fallback if no animator - just disable the door object
-            gameObject.SetActive(false);
-        }
+        _isOpen = !_isOpen;
+        gameObject.SetActive(!_isOpen);
     }
 }

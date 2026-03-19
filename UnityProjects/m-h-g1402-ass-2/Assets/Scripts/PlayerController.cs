@@ -1,4 +1,5 @@
 using System;
+using Enums;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -58,8 +59,13 @@ public class PlayerController : MonoBehaviour
     {
         return _velocity;
     }
+    public void DisableInput()
+    {
+        enabled = false;
+    }
+    
 
-    #region Unity Functions
+  #region Unity Functions
     void Start()
     {
         _characterController = GetComponent<CharacterController>();
@@ -98,20 +104,26 @@ public class PlayerController : MonoBehaviour
             _velocity.y = -0.2f;
         }
     }
-    #endregion    
+  #endregion    
 
+
+  #region Movement and Aiming
     public void OnMove(InputValue value)
     {
+        //Guard against non-playing states
+        if (GameManager.Instance.CurrentState != GameState.Playing) return;
+        
         _moveInput = value.Get<Vector2>();
     }
-
     public void OnLook(InputValue value)
     {
         _lookInput = value.Get<Vector2>();
     }
-
     public void OnJump()
     {
+        //Guard against non-playing states
+        if (GameManager.Instance.CurrentState != GameState.Playing) return;
+        
         if(_isGrounded)
         {
             Debug.Log("JUMP");
@@ -119,9 +131,11 @@ public class PlayerController : MonoBehaviour
             OnJumpEvent?.Invoke();
         }
     }
-
     public void OnAim(InputValue value)
     {
+        //Guard against non-playing states
+        if (GameManager.Instance.CurrentState != GameState.Playing) return;
+        
         _currentState = value.isPressed ? PlayerState.AIM : PlayerState.EXPLORE;
         OnStateUpdated?.Invoke(_currentState);
         
@@ -133,8 +147,6 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(_camForward);
         }
     }
-    
-    
     private void CalculateMovementExplore()
     {
         _camForward = playerCamera.transform.forward;
@@ -171,7 +183,7 @@ public class PlayerController : MonoBehaviour
     //Rotate player around Y-axis based on horizontal mouse movement
     transform.Rotate(Vector3.up, rotationSpeed * _lookInput.x * Time.deltaTime);
     
-    //WASD relates to where the plauyer is currently facing
+    //WASD relates to where the player is currently facing
     //Left/Right goes sideways, forward/back moves along the players facing direction
     _moveDirection = _moveInput.x * transform.right + _moveInput.y * transform.forward;
     
@@ -200,7 +212,7 @@ public class PlayerController : MonoBehaviour
             groundLayer
         );
     }
-    
+  #endregion    
     void OnDrawGizmos()
     {
         Gizmos.color = Color.magenta;

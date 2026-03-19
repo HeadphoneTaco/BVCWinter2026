@@ -1,19 +1,18 @@
 using UnityEngine;
 using UnityEngine.UI;
+
 namespace UI
 {
-    public class PauseMenu : MonoBehaviour
+    public class WinMenu : MonoBehaviour
     {
-        //Input
-        [SerializeField] private Button resumeButton;
         [SerializeField] private Button restartButton;
         [SerializeField] private Button mainMenuButton;
         [SerializeField] private CanvasGroup canvasGroup;
         private void Start()
         {
-            resumeButton.onClick.AddListener(OnResumeClicked);
             restartButton.onClick.AddListener(OnRestartClicked);
             mainMenuButton.onClick.AddListener(OnMainMenuClicked);
+            GameManager.Instance.OnGameWin += Show;
             Hide();
         }
         private void Show()
@@ -30,15 +29,12 @@ namespace UI
         }
         private void OnEnable()
         {
-            GameManager.Instance.OnGamePaused += Show;
-            GameManager.Instance.OnGameResumed += Hide;
+            GameManager.Instance.OnGameWin += Show;
         }
         private void OnDisable()
         {
-            GameManager.Instance.OnGamePaused -= Show;
-            GameManager.Instance.OnGameResumed -= Hide;
+            GameManager.Instance.OnGameWin -= Show;
         }
-        private void OnResumeClicked() => GameManager.Instance.Resume();
         private void OnRestartClicked() => GameManager.Instance.RestartGame();
         private void OnMainMenuClicked() => GameManager.Instance.LoadMainMenu();
     }

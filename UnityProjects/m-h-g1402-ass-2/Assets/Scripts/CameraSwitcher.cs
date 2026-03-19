@@ -1,3 +1,4 @@
+using Enums;
 using Unity.Cinemachine;
 using UnityEngine;
 
@@ -6,7 +7,8 @@ public class CameraSwitcher : MonoBehaviour
     [SerializeField] private CinemachineCamera explorecamera;
     [SerializeField] private CinemachineCamera aimCamera;
     [SerializeField] private PlayerController playerController;
-        
+
+  #region Unity Functions
     void OnEnable()
     {
         playerController.OnStateUpdated += SwitchCamera;
@@ -16,6 +18,7 @@ public class CameraSwitcher : MonoBehaviour
     {
         playerController.OnStateUpdated -= SwitchCamera;
     }
+  #endregion  
 
     private void SwitchCamera(PlayerState state)
     {
