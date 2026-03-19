@@ -1,4 +1,5 @@
 using Enums;
+using Managers;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -42,6 +43,8 @@ public class Shooter : MonoBehaviour
     {
         if (_currentState != PlayerState.AIM) return;
         
+        
+        
         //Calculate the direction
         _shootDirection = aimTrack.position - shootPoint.position;
         _shootDirection.Normalize();
@@ -51,5 +54,8 @@ public class Shooter : MonoBehaviour
         
         //Apply a force
         _projectile.GetComponent<Rigidbody>().AddForce(shootForce * _shootDirection, ForceMode.Impulse);
+        
+        //Make a sound
+        AudioManager.Instance?.PlayShoot();
     }
 }

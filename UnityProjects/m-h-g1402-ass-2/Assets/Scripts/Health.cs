@@ -1,5 +1,6 @@
 using System;
 using Interfaces;
+using Managers;
 using UnityEngine;
 
 public class Health : MonoBehaviour, IDamageable
@@ -22,6 +23,9 @@ public class Health : MonoBehaviour, IDamageable
         _currentHealth = Mathf.Clamp(_currentHealth, 0, maxHealth);
         
         OnHealthChanged?.Invoke(_currentHealth, maxHealth);
+        
+        //Make sound
+        AudioManager.Instance?.PlayHit();
         
         if (_currentHealth <= 0)
         {

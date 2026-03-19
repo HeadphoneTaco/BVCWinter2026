@@ -40,6 +40,9 @@ namespace Managers
 
         private void HandleDeath()
         {
+            //Make sound
+            AudioManager.Instance?.PlayDeath();
+            
             StartCoroutine(DeathSequence());
         }
 
