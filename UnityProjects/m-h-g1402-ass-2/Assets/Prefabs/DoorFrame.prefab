@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7195606387223747560}
   - component: {fileID: 7154875361545226733}
-  - component: {fileID: 5219381686328391379}
   m_Layer: 0
   m_Name: Hinge
   m_TagString: Untagged
@@ -56,23 +55,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!111 &5219381686328391379
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 829082838655083906}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 7400000, guid: b9f6229e353f66b44af74c59fd262ef8, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: cdf0ca41a83276d4cbb6a4d8afabe4b1, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
 --- !u!1 &3030449136092249927
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,7 +70,6 @@ GameObject:
   - component: {fileID: 7168569402304286834}
   - component: {fileID: 7261105945151838086}
   - component: {fileID: 7861866076250684937}
-  - component: {fileID: 3178148492507351334}
   m_Layer: 0
   m_Name: DoorFrame
   m_TagString: Untagged
@@ -661,29 +642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bee5558e2d85f8143a58fc915c2ef6c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorAnimator: {fileID: 3178148492507351334}
---- !u!95 &3178148492507351334
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3030449136092249927}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7bbd4b25b8b4f1f499bc85014369eebb, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  doorAnimator: {fileID: 7154875361545226733}
 --- !u!1 &8234641383972410561
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,7 +655,6 @@ GameObject:
   - component: {fileID: 2841192933025331163}
   - component: {fileID: 1030167997262542034}
   - component: {fileID: 1721892838327084193}
-  - component: {fileID: 2609268011948456328}
   m_Layer: 0
   m_Name: Panel
   m_TagString: Untagged
@@ -793,25 +751,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &2609268011948456328
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8234641383972410561}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7bbd4b25b8b4f1f499bc85014369eebb, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0

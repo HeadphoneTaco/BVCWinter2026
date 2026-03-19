@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8551389942371184827}
   - component: {fileID: 9143786387581640838}
   - component: {fileID: 2196332228684529626}
-  - component: {fileID: 3405676512508978121}
   - component: {fileID: 4452644457592355700}
   m_Layer: 0
   m_Name: DoorTarget
@@ -110,19 +109,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3405676512508978121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2230330323276979386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f12cbd1307e4d2040b848f6ab0f486c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
 --- !u!114 &4452644457592355700
 MonoBehaviour:
   m_ObjectHideFlags: 0

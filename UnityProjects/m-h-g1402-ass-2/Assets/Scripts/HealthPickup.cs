@@ -1,4 +1,5 @@
 using Interfaces;
+using Managers;
 using UnityEngine;
 
 public class HealthPickup : MonoBehaviour, ICollectable
@@ -12,6 +13,8 @@ public class HealthPickup : MonoBehaviour, ICollectable
         if (health != null)
         {
             Debug.Log("Health Collected: " + healAmount);
+            //Make sound
+            AudioManager.Instance?.PlayCollect();
             health.Heal(healAmount);
         }
 
