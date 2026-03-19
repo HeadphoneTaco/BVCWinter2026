@@ -1,3 +1,4 @@
+using Managers;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,10 +28,7 @@ namespace UI
             canvasGroup.interactable = false;
             canvasGroup.blocksRaycasts = false;
         }
-        private void OnEnable()
-        {
-            GameManager.Instance.OnGameWin += Show;
-        }
+        //Moved Subscription to Start
         private void OnDisable()
         {
             GameManager.Instance.OnGameWin -= Show;

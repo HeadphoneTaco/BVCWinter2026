@@ -1,3 +1,4 @@
+using Managers;
 using UnityEngine;
 
 // Attach to a trigger volume next to a SpawnPoint.
