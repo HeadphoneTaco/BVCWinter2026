@@ -2,19 +2,26 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace YeetThePlayer
-{
-    
 public class PlayerController : MonoBehaviour
 {
+    
     [SerializeField] private Camera playerCamera;
+    [Space(10)]
+    [Header("Player Movement")]
     [SerializeField] private float moveSpeed = 2;
     [SerializeField] private float accelerationSpeed = 20f;
     [SerializeField] private float decelerationSpeed = 25f;
-    
     [SerializeField] private float rotationSpeed = 10;
     [SerializeField] public float gravity = -9.8f;
     [SerializeField] private float jumpVelocity = 10f;
+
+    [Space(10)]
+    [Header("Aiming")]
+    [SerializeField] private float moveSpeedAimed = 2;
+    [SerializeField] private float rotationSpeedAimed = 2;
+    [SerializeField] private Transform aimTrack;
+    [SerializeField] private float maxaimHeight;
+    [SerializeField] private float minaimHeight;
 
     [Space(10)]
     [Header("Ground Check")]
@@ -24,8 +31,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
 
     public event Action OnJumpEvent;
+    public event Action<PlayerState> OnStateUpdated;
     
     private Vector2 _moveInput;
+    private Vector2 _lookInput;
     private Vector3 _camForward;
     private Vector3 _camRight;
     private Vector3 _moveDirection;
@@ -34,6 +43,10 @@ public class PlayerController : MonoBehaviour
     private Vector3 _currentHorizontalVelocity;
     private Vector3 _velocity;
     private bool _isGrounded;
+    private Vector3 _defaultAimTrackerPosition;
+    private Vector3 _tempAimTrackerPosition;
+    
+    private PlayerState _currentState;
 
     // Property
     public bool IsGrounded()
@@ -46,16 +59,34 @@ public class PlayerController : MonoBehaviour
         return _velocity;
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    #region Unity Functions
     void Start()
     {
         _characterController = GetComponent<CharacterController>();
+        
+        //Set default state
+        _currentState = PlayerState.EXPLORE;
+        OnStateUpdated?.Invoke(_currentState);
+        
+        _defaultAimTrackerPosition = aimTrack.localPosition;
     }
+    
 
     // Update is called once per frame
     void Update()
     {
-        CalculateMovement();
+        if (_currentState == PlayerState.EXPLORE)
+        {
+            CalculateMovementExplore();
+                aimTrack.localPosition = _defaultAimTrackerPosition;
+        }
+        else if (_currentState == PlayerState.AIM)
+        {
+            CalculateMovementAim();
+            UpdateAimTrack();
+        }
+        
+        
         _characterController.Move(_velocity * Time.deltaTime);
     }
 
@@ -67,10 +98,16 @@ public class PlayerController : MonoBehaviour
             _velocity.y = -0.2f;
         }
     }
+    #endregion    
 
     public void OnMove(InputValue value)
     {
         _moveInput = value.Get<Vector2>();
+    }
+
+    public void OnLook(InputValue value)
+    {
+        _lookInput = value.Get<Vector2>();
     }
 
     public void OnJump()
@@ -82,7 +119,23 @@ public class PlayerController : MonoBehaviour
             OnJumpEvent?.Invoke();
         }
     }
-    private void CalculateMovement()
+
+    public void OnAim(InputValue value)
+    {
+        _currentState = value.isPressed ? PlayerState.AIM : PlayerState.EXPLORE;
+        OnStateUpdated?.Invoke(_currentState);
+        
+        if (_currentState == PlayerState.AIM)
+        {
+            _camForward = playerCamera.transform.forward;
+            _camForward.y = 0;
+            _camForward.Normalize();
+            transform.rotation = Quaternion.LookRotation(_camForward);
+        }
+    }
+    
+    
+    private void CalculateMovementExplore()
     {
         _camForward = playerCamera.transform.forward;
         _camRight = playerCamera.transform.right;
@@ -99,7 +152,6 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, _targetRotation, rotationSpeed * Time.deltaTime);
         }
         
-        //Calculate gravity
         Vector3 targetHorizontalVelocity = _moveDirection * moveSpeed;
         
         float rate = _moveDirection.sqrMagnitude > 0.01f ? accelerationSpeed : decelerationSpeed;
@@ -109,8 +161,32 @@ public class PlayerController : MonoBehaviour
             rate * Time.deltaTime
         );
         
+        //Calculate gravity
         _velocity = _currentHorizontalVelocity + Vector3.up * _velocity.y;
         _velocity.y += gravity * Time.deltaTime;
+    }
+
+    private void CalculateMovementAim()
+    {
+    //Rotate player around Y-axis based on horizontal mouse movement
+    transform.Rotate(Vector3.up, rotationSpeed * _lookInput.x * Time.deltaTime);
+    
+    //WASD relates to where the plauyer is currently facing
+    //Left/Right goes sideways, forward/back moves along the players facing direction
+    _moveDirection = _moveInput.x * transform.right + _moveInput.y * transform.forward;
+    
+   
+    _velocity = _velocity.y * Vector3.up + moveSpeedAimed * _moveDirection;
+    _velocity.y += gravity * Time.deltaTime;
+    }
+
+    private void UpdateAimTrack()
+    {
+        _tempAimTrackerPosition = aimTrack.localPosition;
+        _tempAimTrackerPosition.y += _lookInput.y * rotationSpeedAimed * Time.deltaTime;
+        _tempAimTrackerPosition.y = Mathf.Clamp(_tempAimTrackerPosition.y, minaimHeight, maxaimHeight);
+        
+        aimTrack.localPosition = _tempAimTrackerPosition;
     }
 
     private void CheckGrounded()
@@ -131,7 +207,6 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawSphere(transform.position + groundCheckOffset, groundCheckRadius);
         Gizmos.DrawSphere(transform.position + groundCheckOffset + Vector3.down * groundCheckDistance, groundCheckRadius);
         Gizmos.DrawCube(transform.position + groundCheckOffset + Vector3.down * groundCheckDistance/2, 
-                    new Vector3(1.5f* groundCheckRadius, groundCheckDistance , 1.5f * groundCheckRadius) );
+            new Vector3(1.5f* groundCheckRadius, groundCheckDistance , 1.5f * groundCheckRadius) );
     }
-}
 }
