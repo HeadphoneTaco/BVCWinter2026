@@ -1,4 +1,5 @@
 using System;
+using Enums;
 using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,16 +10,17 @@ public class GameManager : MonoBehaviour
     //Input
     [SerializeField] private MouseBehavior mouseBehavior;
     [SerializeField] private InputAction pauseInput;
+    [SerializeField] private PlayerController playerController;
     
     public static GameManager Instance;
     
-    public enum GameState { Playing, Paused, Win, Lose }
+    
     public GameState CurrentState { get; private set; }
     // Other scripts listen to these to show/hide their UI
     public event Action OnGamePaused;
     public event Action OnGameResumed;
-    public event Action OnGameWon;
-    public event Action OnGameLost;
+    public event Action OnGameWin;
+    public event Action OnGameLose;
 
     private void Awake()
     {
@@ -51,8 +53,7 @@ public class GameManager : MonoBehaviour
         if (CurrentState == GameState.Playing) Pause();
         else if (CurrentState == GameState.Paused) Resume();
     }
-
-#region GameStates
+    
     public void Pause()
     {
         SetState(GameState.Paused);
@@ -74,7 +75,8 @@ public class GameManager : MonoBehaviour
         SetState(GameState.Win);
         Time.timeScale = 0f;
         mouseBehavior.ShowMouse(true);
-        OnGameWon?.Invoke();
+        playerController.DisableInput();
+        OnGameWin?.Invoke();
     }
 
     public void TriggerLose()
@@ -82,9 +84,9 @@ public class GameManager : MonoBehaviour
         SetState(GameState.Lose);
         Time.timeScale = 0f;
         mouseBehavior.ShowMouse(true);
-        OnGameLost?.Invoke();
+        playerController.DisableInput();
+        OnGameLose?.Invoke();
     }
-#endregion
 
     public void RestartGame()
     {
