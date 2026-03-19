@@ -1,14 +1,14 @@
 using UnityEngine;
 public class MovingPlatformMagnet : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             other.transform.SetParent(transform);
         }
     }
-     private void OnTriggerExit2D(Collider2D other)
+     private void OnTriggerExit(Collider other)
      {
          if (other.gameObject.CompareTag("Player"))
          {
