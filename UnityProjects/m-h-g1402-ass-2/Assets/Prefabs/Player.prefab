@@ -108,6 +108,7 @@ Transform:
   m_Children:
   - {fileID: 4921456746945725292}
   - {fileID: 952997775853138676}
+  - {fileID: 5962163226201372715}
   - {fileID: 2198882805780849251}
   - {fileID: 4122527721607863468}
   - {fileID: 2045433578039114506}
@@ -157,9 +158,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   playerCamera: {fileID: 0}
   moveSpeed: 10
+  accelerationSpeed: 20
+  decelerationSpeed: 25
   rotationSpeed: 10
   gravity: -10
   jumpVelocity: 5
+  moveSpeedAimed: 2
+  rotationSpeedAimed: 2
+  aimTrack: {fileID: 5962163226201372715}
+  maxaimHeight: 5
+  minaimHeight: 0
   groundCheckOffset: {x: 0, y: -0.8, z: 0}
   groundCheckDistance: 0.2
   groundCheckRadius: 0.2
@@ -297,8 +305,9 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   shootPoint: {fileID: 2045433578039114506}
+  aimTrack: {fileID: 5962163226201372715}
   shootObject: {fileID: 5458347707898549213, guid: 04e292a2472e3e9449112e3a5e959cfc, type: 3}
-  shootForce: 1000
+  shootForce: 20
 --- !u!114 &6762911097301475531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,6 +333,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15a4ed671af49cf48a799f7473d4fc1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meleeInput:
+    m_Name: Melee Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 62a815af-3841-4d83-9be9-909a4ca9dd7a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   animator: {fileID: 1540696424921643290}
   hitbox: {fileID: 5831837568835028351}
 --- !u!1 &6195606360745372738
@@ -626,6 +644,37 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!1 &7647132627710838245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5962163226201372715}
+  m_Layer: 0
+  m_Name: Aim Target
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5962163226201372715
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7647132627710838245}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.35, z: 4.05}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7566300807073070694}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8316677381717951761
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,7 +795,7 @@ GameObject:
   m_Layer: 0
   m_Name: ShootPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
