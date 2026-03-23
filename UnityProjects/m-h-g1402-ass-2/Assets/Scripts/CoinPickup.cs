@@ -11,8 +11,6 @@ public class CoinPickup : MonoBehaviour, ICollectable
         Debug.Log("Coin Collected");
         //Make sound
         AudioManager.Instance?.PlayCollect();
-
-
         Destroy(gameObject);
     }
 }
