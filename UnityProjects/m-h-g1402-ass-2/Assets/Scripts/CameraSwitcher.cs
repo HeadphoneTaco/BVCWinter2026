@@ -25,12 +25,10 @@ public class CameraSwitcher : MonoBehaviour
         switch (state)
         {
             case PlayerState.EXPLORE:
-                //Do Something
                 explorecamera.Prioritize();
                 break;
             
             case PlayerState.AIM:
-                //Do something else
                 aimCamera.Prioritize();
                 break;
             
