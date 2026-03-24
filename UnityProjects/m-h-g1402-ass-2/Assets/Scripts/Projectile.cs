@@ -2,8 +2,8 @@ using UnityEngine;
 using Interfaces;
 
 // Attach to any projectile prefab - arrow, magic, etc.
-// Set damage value per prefab in the inspector.
-// Arrow prefab: damage 2, Magic prefab: damage 3
+// Set values per prefab in the inspector.
+// Eg: Damage 1 unit, Lifetime 5 seconds 
 [RequireComponent(typeof(Rigidbody))]
 public class Projectile : MonoBehaviour
 {
@@ -26,7 +26,7 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
 
-        // Destroy on hitting anything solid (ground, walls etc)
+        // Destroy on hitting anything solid (ground, walls etc.)
         // Ignore triggers so it doesn't destroy on detection zones
         if (!other.isTrigger)
         {

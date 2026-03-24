@@ -6,7 +6,7 @@ namespace UI
     public class CoinUI : MonoBehaviour
     {
         [SerializeField] private TMP_Text coinText;
-        private int _coinCount = 0;
+        private int _coinCount;
 
         public void AddCoin()
         {

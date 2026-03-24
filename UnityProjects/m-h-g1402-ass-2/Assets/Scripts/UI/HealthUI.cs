@@ -10,6 +10,12 @@ namespace UI
         [SerializeField] private Health playerHealth;
         [SerializeField] private TMP_Text healthText;
 
+        private void Start()
+        {
+            // Set initial display
+            UpdateHealthDisplay(playerHealth.GetCurrentHealth(), playerHealth.GetMaxHealth());
+        }
+        
         private void OnEnable()
         {
             playerHealth.OnHealthChanged += UpdateHealthDisplay;
@@ -20,11 +26,6 @@ namespace UI
             playerHealth.OnHealthChanged -= UpdateHealthDisplay;
         }
 
-        private void Start()
-        {
-            // Set initial display
-            UpdateHealthDisplay(playerHealth.GetCurrentHealth(), playerHealth.GetMaxHealth());
-        }
 
         private void UpdateHealthDisplay(int current, int max)
         {
