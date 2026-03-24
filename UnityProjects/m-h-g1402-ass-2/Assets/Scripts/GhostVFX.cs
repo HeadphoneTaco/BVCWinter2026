@@ -22,7 +22,7 @@ public class GhostVFX : MonoBehaviour
         _timer += Time.deltaTime;
 
         // Float upward
-        transform.position += Vector3.up * floatSpeed * Time.deltaTime;
+        transform.position += Vector3.up * (floatSpeed * Time.deltaTime);
 
         // Billboard - face toward camera, not away from it
         transform.LookAt(

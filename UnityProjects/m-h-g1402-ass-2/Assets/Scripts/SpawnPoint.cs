@@ -1,11 +1,14 @@
 using UnityEngine;
 
-// Simply marks a position as a spawn point.
-// Attach to any empty GameObject in the scene.
-// Future checkpoints just need this component on them.
+/// <summary>
+/// Marks a GameObject's transform as a spawn location in the scene.
+/// </summary>
 public class SpawnPoint : MonoBehaviour
 {
-    // Visualize spawn point in editor
+    /// <summary>
+    /// Draws editor gizmos to visualize this spawn point in the Scene view.
+    /// A green wire sphere marks the position, and a vertical line assists with visibility.
+    /// </summary>
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
