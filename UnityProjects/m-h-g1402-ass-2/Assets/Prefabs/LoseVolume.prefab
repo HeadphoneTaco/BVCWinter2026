@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5335572455835581688}
   - component: {fileID: 3796170312453125212}
   - component: {fileID: 5777602528390634466}
+  - component: {fileID: 4089670716909431093}
   m_Layer: 0
   m_Name: LoseVolume
   m_TagString: Untagged
@@ -71,3 +72,15 @@ MonoBehaviour:
   blendDistance: 1
   weight: 1
   sharedProfile: {fileID: 0}
+--- !u!114 &4089670716909431093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4234845032182308526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7cde54a2b2344b49bbcbc4e90ddf840, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
