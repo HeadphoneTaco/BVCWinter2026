@@ -27,7 +27,6 @@ public class Projectile : MonoBehaviour
     /// </summary>
     private void Start()
     {
-        // Auto destroy if it hits nothing
         Destroy(gameObject, lifetime);
     }
 
@@ -38,23 +37,18 @@ public class Projectile : MonoBehaviour
     /// <remarks>
     /// If the collided object implements <see cref="IDamageable"/>, damage is applied and the projectile is destroyed.
     /// The projectile is also destroyed on non-trigger collisions (for example, walls or ground),
-    /// while trigger-only detection zones are ignored for this check.
+    /// while trigger-only detection zones do not destroy the projectile.
     /// </remarks>
     private void OnTriggerEnter(Collider other)
     {
-        IDamageable damageable = other.GetComponent<IDamageable>();
+        var damageable = other.GetComponent<IDamageable>();
 
         if (damageable != null)
         {
             damageable.TakeDamage(damage);
             Destroy(gameObject);
         }
-
-        // Destroy on hitting anything solid (ground, walls etc.)
-        // Ignore triggers so it doesn't destroy on detection zones
-        if (!other.isTrigger)
-        {
-            Destroy(gameObject);
-        }
+        
+        if (!other.isTrigger) Destroy(gameObject);
     }
 }
