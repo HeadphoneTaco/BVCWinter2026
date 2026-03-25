@@ -22,7 +22,7 @@ namespace Managers
         public event Action OnGamePaused;
         public event Action OnGameResumed;
         public event Action OnGameWin;
-        public event Action OnGameLose;
+        public event Action OnGameLoss;
 
         private void Awake()
         {
@@ -81,13 +81,13 @@ namespace Managers
             OnGameWin?.Invoke();
         }
 
-        public void TriggerLose()
+        public void TriggerLoss()
         {
-            SetState(GameState.Lose);
+            SetState(GameState.Loss);
             Time.timeScale = 0f;
             mouseBehavior.ShowMouse(true);
             playerController.DisableInput();
-            OnGameLose?.Invoke();
+            OnGameLoss?.Invoke();
         }
 
         public void RestartGame()

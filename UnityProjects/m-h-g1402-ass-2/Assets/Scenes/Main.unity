@@ -1578,7 +1578,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 302836342}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.11750023, y: 0.0017392439, z: -0.00020578736, w: 0.9930714}
+  m_LocalRotation: {x: 0.11750023, y: 0.0017446838, z: -0.00020643107, w: 0.9930713}
   m_LocalPosition: {x: 2.029158, y: 1.25505, z: -7.8664446}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5094,7 +5094,7 @@ GameObject:
   - component: {fileID: 989795659}
   - component: {fileID: 989795658}
   m_Layer: 5
-  m_Name: LoseRestartButton
+  m_Name: LossRestartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5622,7 +5622,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048887643}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.11750022, y: 0.0017392436, z: -0.0002057873, w: 0.9930714}
+  m_LocalRotation: {x: 0.11750024, y: 0.0017446837, z: -0.00020643104, w: 0.9930713}
   m_LocalPosition: {x: 2.029158, y: 1.25505, z: -7.8664446}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6530,7 +6530,7 @@ GameObject:
   - component: {fileID: 1307207036}
   - component: {fileID: 1307207033}
   m_Layer: 5
-  m_Name: LoseMenu
+  m_Name: LossMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8877,7 +8877,7 @@ GameObject:
   - component: {fileID: 1786503031}
   - component: {fileID: 1786503030}
   m_Layer: 5
-  m_Name: LoseMainMenuButton
+  m_Name: LossMainMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9111,7 +9111,7 @@ GameObject:
   - component: {fileID: 1840543636}
   - component: {fileID: 1840543635}
   m_Layer: 5
-  m_Name: LoseMenuText (TMP)
+  m_Name: LossMenuText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
