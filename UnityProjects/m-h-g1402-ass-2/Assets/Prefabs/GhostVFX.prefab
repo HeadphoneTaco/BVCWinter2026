@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 198927540785530463}
   - component: {fileID: 8117254148776156346}
+  - component: {fileID: 7227794627726357698}
   m_Layer: 0
   m_Name: GhostVFX
   m_TagString: Untagged
@@ -87,3 +88,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7227794627726357698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7122962301938058430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ee7ec6bd33eb834ca753998cffeade2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatSpeed: 2
+  lifetime: 2
