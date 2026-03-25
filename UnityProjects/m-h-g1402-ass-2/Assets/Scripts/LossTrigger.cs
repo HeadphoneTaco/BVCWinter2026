@@ -1,6 +1,8 @@
 using Managers;
 using UnityEngine;
 
+//TODO:Make the game actually get to the loss state
+
 /// <summary>
 /// Trigger volume that causes the game to enter a loss state when the player enters it.
 /// </summary>

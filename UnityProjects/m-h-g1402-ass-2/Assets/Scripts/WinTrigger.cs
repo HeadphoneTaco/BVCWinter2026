@@ -1,6 +1,8 @@
 using Managers;
 using UnityEngine;
 
+//TODO:Make the game have a win condition that isn't just a collision volume
+
 /// <summary>
 /// Trigger volume that ends the level with a win state when the player enters it.
 /// </summary>
@@ -22,9 +24,6 @@ public class WinTrigger : MonoBehaviour
     /// <param name="other">The collider that entered this trigger.</param>
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            GameManager.Instance.TriggerWin();
-        }
+        if (other.CompareTag("Player")) GameManager.Instance.TriggerWin();
     }
 }
