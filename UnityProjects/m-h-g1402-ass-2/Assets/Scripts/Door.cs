@@ -14,7 +14,7 @@ public class Door : MonoBehaviour
     /// Cached animator parameter hash for the <c>_isOpen</c> boolean.
     /// </summary>
     private static readonly int IsOpen = Animator.StringToHash("_isOpen");
-    
+
     /// <summary>
     /// Tracks whether the door is currently considered open.
     /// </summary>
