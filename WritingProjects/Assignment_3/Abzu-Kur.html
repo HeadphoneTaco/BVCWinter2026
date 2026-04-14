@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Abzu-Kur.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Abzu-Kur" startnode="1" creator="Twine" creator-version="2.11.1" format="Harlowe" format-version="3.3.9" ifid="8110D42A-73FC-4B2F-A8A9-0BFB4F152800" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-sidebar { display: none; }</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="tesrtrrrt" color="purple"></tw-tag><tw-tag name="startup" color="yellow"></tw-tag><tw-tag name="Kisha-Jump" color="blue"></tw-tag><tw-passagedata pid="1" name="Start" tags="" position="100,700" size="100,100">The workshop smells like copper and dried herbs.
+<tw-storydata name="Abzu-Kur" startnode="1" creator="Twine" creator-version="2.11.1" format="Harlowe" format-version="3.3.9" ifid="8110D42A-73FC-4B2F-A8A9-0BFB4F152800" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-sidebar { display: none; }</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="tesrtrrrt" color="purple"></tw-tag><tw-tag name="startup" color="yellow"></tw-tag><tw-tag name="Kisha-Jump" color="blue"></tw-tag><tw-tag name="Suspicions" color="red"></tw-tag><tw-tag name="Navigation" color="purple"></tw-tag><tw-tag name="Observation" color="green"></tw-tag><tw-passagedata pid="1" name="Start" tags="" position="100,700" size="100,100">The workshop smells like copper and dried herbs.
 
 Nab has pressed a paste into the crack along your palm and told you to wait. It is the colour of old mustard, faintly resinous, and it smells like something between pine sap and turned earth. It has already begun to tighten against the split skin. You are waiting. The wound is not serious. Three days harvesting grain on Bani&#39;s farm will split the skin of hands that have not done it before, and your hands have not done it before. That is what Nab said when he looked at it. He said it the way a person describes weather.
 
@@ -93,8 +93,7 @@ Nab watches her go. He doesn&#39;t look surprised. He looks like a man who has b
 &quot;You should rest that hand,&quot; he says, turning back to his instruments.
 
 [[Leave]]
-</tw-passagedata><tw-passagedata pid="10" name="Place: Streets" tags="" position="1800,700" size="100,100">(if: $nabComplete is false and $kishaComplete is false)[
-The wind is still moving west to east.
+</tw-passagedata><tw-passagedata pid="10" name="Place: Streets" tags="" position="1700,650" size="100,100">(if: $nabComplete is false and $kishaComplete is false)[The wind is still moving west to east.
 
 You stand outside Nab&#39;s workshop with a bandaged palm and the fragments of a conversation that was not meant for you. Down the street, you can see the edge of Kisha&#39;s wrap disappearing around a corner. Behind you, through the workshop wall, you can hear Nab moving between his instruments.
 
@@ -102,42 +101,42 @@ You stand outside Nab&#39;s workshop with a bandaged palm and the fragments of a
 
 He said that. And then he didn&#39;t answer her question.
 
-[[Place: Market]]
+(display: &quot;Suspicion: Observation&quot;)
+(display: &quot;Streets: Navigation&quot;)
 [[Place: Workshop]]
-]
-
-(if: $nabComplete is true and $kishaComplete is false)[
-Nab&#39;s answer, or his silence, follows you out the door.
+[[Walk toward the market.-&gt;Place: Market]]
+](if: $nabComplete is true and $kishaComplete is false)[Nab&#39;s answer, or his silence, follows you out the door.
 
 The sun is lower now, the light coming in flat and orange from the west, turning the dust in the air the colour of old copper. The workshop district is quiet at this hour. Somewhere further into the settlement a child is being called inside for the evening.
 
 You stand outside with the weight of what Nab told you sitting in your chest. Kisha is still out there. She found the thing with her hands that Nab spent three years mapping with numbers, and she has no idea he already knew.
 
-[[Go find Kisha.-&gt;Place: Market]]
+(display: &quot;Suspicion: Observation&quot;)
+(display: &quot;Streets: Navigation&quot;)
+[[Walk toward the market.-&gt;Place: Market]]
 [[Return to Bani. There is work to be done.-&gt;Ending C: The History]]
-]
-
-(if: $nabComplete is false and $kishaComplete is true)[
-The market is behind you. Kisha&#39;s words are still settling.
+](if: $nabComplete is false and $kishaComplete is true)[The market is behind you. Kisha&#39;s words are still settling.
 
 Nab told her to forget what she saw. Which means he already knows what it is. You heard Kisha say it herself, and now standing here in the street you keep turning it over. He knew. Before she told him. He knew.
 
 The workshop light is still on.
 
-[[Go back in. Ask Nab what he knows.-&gt;Place: Workshop]]
+(display: &quot;Suspicion: Observation&quot;)
+(display: &quot;Streets: Navigation&quot;)
+[[Go ask Nab what he knows.-&gt;Place: Workshop]]
+[[Walk toward the market.-&gt;Place: Market]]
 [[Go back to Bani&#39;s farm.-&gt;Ending A: The Site]]
-]
-
-(if: $nabComplete is true and $kishaComplete is true)[
-Two people are talking near the wall as you pass.
+](if: $nabComplete is true and $kishaComplete is true)[Two people are talking near the wall as you pass.
 You catch one word before they notice you and stop.
 
 *Shem.*
 
 They find reasons to look elsewhere. You keep walking.
 
-[[Find Kisha. She deserves to know.-&gt;Ending B: The Rift]]
-]</tw-passagedata><tw-passagedata pid="11" name="Place: Market" tags="" position="1300,900" size="100,100">You round the corner and lose her immediately.
+(display: &quot;Suspicion: Observation&quot;)
+(display: &quot;Streets: Navigation&quot;)
+[[Walk toward the market.-&gt;Place: Market]]
+[[Find Kisha. She deserves to know.-&gt;Ending B: The Rift]]]</tw-passagedata><tw-passagedata pid="11" name="Place: Market" tags="" position="1200,850" size="100,100">You round the corner and lose her immediately.
 
 The market runs along the base of the eastern wall, stalls pressed close enough together that the awnings overlap. It smells like grain dust and hot stone and something chemical you haven&#39;t identified yet, sharp underneath the rest. People move through the narrow gaps between stalls with the practiced efficiency of a crowd that has navigated this space ten thousand times before. You have not navigated this space ten thousand times before.
 You stop at the edge of it and scan for the miner&#39;s wrap. Nothing.
@@ -152,7 +151,7 @@ You don&#39;t know his name. In Abzu-Kur, that means he knows yours.
 
 [[Push into the market]]
 [[Wait at the edge]]
-[[Go back to the Workshop.-&gt;Place: Streets]]</tw-passagedata><tw-passagedata pid="12" name="Push into the market" tags="" position="1300,1100" size="100,100">You go in.
+[[Go back to the Workshop.-&gt;Place: Streets]]</tw-passagedata><tw-passagedata pid="12" name="Push into the market" tags="" position="1200,1050" size="100,100">You go in.
 
 The crowd moves around you with the indifference of water around a stone. You keep your eyes at shoulder height, looking for the reinforced wrap. Twice you think you see her and don&#39;t. The chemical smell is stronger in here, coming from a stall selling electrical components, small copper coils and lengths of insulated wire arranged on cloth. You note it and keep moving.
 
@@ -160,13 +159,14 @@ Then, at the far end near the eastern gate, you find her.
 
 She is standing with her back to the wall, arms crossed, watching the gate. Waiting for something or making sure nothing followed her. When she sees you her expression does not change.
 
-[[Approach Kisha -&gt;Kisha: Entry]]</tw-passagedata><tw-passagedata pid="13" name="Wait at the edge" tags="" position="1500,900" size="100,100">You wait.
+[[Approach Kisha -&gt;Kisha: Entry]]</tw-passagedata><tw-passagedata pid="13" name="Wait at the edge" tags="" position="1400,850" size="100,100">(set: $suspicion to $suspicion + 1)
+You wait.
 
 The market moves without her. Ten minutes pass, or something close to it. The crowd thins slightly at the far end and fills again. She does not come back through.
 
 You have been standing at the edge of a market in a settlement that is not yours, waiting for a woman who does not want to be followed.
 
-[[Start Back towards Workshop -&gt;Place: Streets]]</tw-passagedata><tw-passagedata pid="14" name="Kisha: Approach" tags="" position="1500,1100" size="100,100">(set: $kishaFirst to true)
+[[Start Back towards Workshop -&gt;Place: Streets]]</tw-passagedata><tw-passagedata pid="14" name="Kisha: Approach" tags="" position="1400,1050" size="100,100">(set: $kishaFirst to true)
 She watches you cross the market toward her without moving.
 
 &quot;You followed me.&quot; She says it the way you&#39;d note a door left open. Observational. Not yet a problem.
@@ -181,7 +181,7 @@ She looks past you into the market. Then back.
 
 [[Kisha: Tunnels]]
 [[Kisha: Forget]]
-[[Kisha: Not Here]]</tw-passagedata><tw-passagedata pid="15" name="Kisha: Forget" tags="" position="1650,1225" size="100,100">She is quiet long enough that you think she has decided against answering.
+[[Kisha: Not Here]]</tw-passagedata><tw-passagedata pid="15" name="Kisha: Forget" tags="" position="1550,1175" size="100,100">She is quiet long enough that you think she has decided against answering.
 
 Then: &quot;How much did you hear?&quot;
 
@@ -200,14 +200,14 @@ She shakes her head. Not refusing exactly. More like the word for it hasn&#39;t 
 The market moves around you both.
 
 [[Kisha: Thinks it means]]
-[[Kisha: Going to do]]</tw-passagedata><tw-passagedata pid="16" name="Kisha: Not Here" tags="" position="1650,1100" size="100,100">&quot;Because you were sitting right there,&quot; she says. Then, after a beat: &quot;And because whatever we were discussing isn&#39;t the kind of thing you say out loud in a room with an open window.&quot;
+[[Kisha: Going to do]]</tw-passagedata><tw-passagedata pid="16" name="Kisha: Not Here" tags="" position="1550,1050" size="100,100">&quot;Because you were sitting right there,&quot; she says. Then, after a beat: &quot;And because whatever we were discussing isn&#39;t the kind of thing you say out loud in a room with an open window.&quot;
 
 She lets that sit for a moment.
 
 &quot;Nab is careful,&quot; she says. &quot;He has reasons to be careful that I&#39;m only beginning to understand.&quot; Her jaw tightens slightly. &quot;He told me to forget what I saw. He said it the way someone says it when they already know forgetting isn&#39;t possible.&quot;
 
 [[Kisha: Thinks it means]]
-[[Kisha: Going to do]]</tw-passagedata><tw-passagedata pid="17" name="Kisha: Tunnels" tags="" position="1650,975" size="100,100">(set: $suspicion to $suspicion + 1)
+[[Kisha: Going to do]]</tw-passagedata><tw-passagedata pid="17" name="Kisha: Tunnels" tags="" position="1550,925" size="100,100">(set: $suspicion to $suspicion + 1)
 Something shifts in her expression. A reassessment.
 
 &quot;You caught more than I thought,&quot; she says.
@@ -217,20 +217,20 @@ She looks past you into the market. A vendor is loading crates onto a cart, movi
 &quot;Something that shouldn&#39;t be there,&quot; she says. &quot;In the tunnels first, then outside the boundary.&quot; She pauses. &quot;I can&#39;t tell you what it is because I don&#39;t have a word for it yet.&quot;
 
 [[Kisha: Thinks it means]]
-[[Kisha: Going to do]]</tw-passagedata><tw-passagedata pid="18" name="Kisha: Thinks it means" tags="" position="1850,1175" size="100,100">(set: $kishaPressed to true)
+[[Kisha: Going to do]]</tw-passagedata><tw-passagedata pid="18" name="Kisha: Thinks it means" tags="" position="1750,1125" size="100,100">(set: $kishaPressed to true)
 She shakes her head slowly.
 &quot;I don&#39;t know what it means,&quot; she says. &quot;I know what I saw. Or what I didn&#39;t see.&quot; She looks at her hands again. &quot;The dust was settling against something. Something with edges. Consistent geometry, but the surface wouldn&#39;t hold the dust evenly. Like it kept shedding it.&quot;
 She stops.
 &quot;I&#39;ve been in those tunnels for six years. I know what rock feels like, what ore feels like. This wasn&#39;t either.&quot; She looks up. &quot;And Nab knew. Before I said a word.&quot;
 
-[[The Site]]</tw-passagedata><tw-passagedata pid="19" name="Kisha: Going to do" tags="" position="1850,1025" size="100,100">(set: $kishaPressed to true)
+[[The Site]]</tw-passagedata><tw-passagedata pid="19" name="Kisha: Going to do" tags="" position="1750,975" size="100,100">(set: $kishaPressed to true)
 She is quiet for a long moment.
 &quot;Nothing,&quot; she says. &quot;For now.&quot;
 You wait.
 &quot;Going back alone would be stupid,&quot; she says. &quot;Telling anyone would be worse. The Priesthood already watches the miners closely enough.&quot; She exhales slowly through her nose. &quot;So nothing. For now.&quot;
 She says it like someone trying to convince themselves.
 
-[[The Site]]</tw-passagedata><tw-passagedata pid="20" name="Exactly what you heard" tags="" position="1500,300" size="100,100">(set: $honesty to true)
+[[The Site]]</tw-passagedata><tw-passagedata pid="20" name="Exactly what you heard" tags="" position="1400,250" size="100,100">(set: $honesty to true)
 (set: $suspicion to $suspicion + 1)
 &quot;The northern face,&quot; you say. &quot;Something that goes down further than the shafts. She followed it outside the boundary markers. You told her to forget what she saw.&quot;
 Nab is very still.
@@ -239,7 +239,7 @@ Nab is very still.
 Something crosses his face. Not surprise. The opposite of surprise, actually. The look of someone who has been waiting for a particular question and is not sure whether to be relieved or afraid now that it has arrived.
 &quot;Sit down,&quot; he says.
 
-[[You take a seat. -&gt;Sit down.]]</tw-passagedata><tw-passagedata pid="21" name="Less than you heard" tags="" position="1500,125" size="100,100">(set: $honesty to false)
+[[You take a seat. -&gt;Sit down.]]</tw-passagedata><tw-passagedata pid="21" name="Less than you heard" tags="" position="1400,75" size="100,100">(set: $honesty to false)
 &quot;Something about the northern face,&quot; you say. &quot;She found something.&quot;
 Nab watches you. He has the particular stillness of someone who knows they are being given a partial account and is deciding whether to accept it.
 &quot;That&#39;s all?&quot; he says.
@@ -249,7 +249,7 @@ He picks up his instrument again. Turns it over in his hands once. Sets it down.
 You don&#39;t, entirely. But you nod.
 &quot;Sit down,&quot; he says.
 
-[[You sit down. -&gt;Sit down.]]</tw-passagedata><tw-passagedata pid="22" name="Sit down." tags="" position="1700,250" size="100,100">The stool he gestures to is the one furthest from the window.
+[[You sit down. -&gt;Sit down.]]</tw-passagedata><tw-passagedata pid="22" name="Sit down." tags="" position="1600,200" size="100,100">The stool he gestures to is the one furthest from the window.
 
 &quot;I found something three years ago,&quot; he says. &quot;Not in the tunnels. In the numbers.&quot; He crosses to the shelves and pulls a tablet from the middle of a stack without looking, the way you reach for something you have handled many times. He sets it in front of you.
 
@@ -265,14 +265,14 @@ He doesn&#39;t need to.
 
 The lamp above you holds steady. Outside, the wind moves west to east.
 
-[[&quot;What do you think all this is? -&gt;Nab: Thinks it is]]
-[[&quot;How much of this does Kisha know?&quot; -&gt;Nab: Didn&#39;t tell Kisha]]</tw-passagedata><tw-passagedata pid="23" name="Nab: Thinks it is" tags="" position="1950,275" size="100,100">Nab is quiet for a moment.
+[[&quot;What do you think all this is?&quot; -&gt;Nab: Thinks it is]]
+[[&quot;How much of this does Kisha know?&quot; -&gt;Nab: Didn&#39;t tell Kisha]]</tw-passagedata><tw-passagedata pid="23" name="Nab: Thinks it is" tags="" position="1850,225" size="100,100">Nab is quiet for a moment.
 
 &quot;I&#39;m not sure.&quot; he says. &quot;The geometry implied by the readings doesn&#39;t seem natural. Not ore, not rock formation. The shape is too consistent. Too deliberate.&quot; He pauses. 
 
 &quot;Something made it; or put it there.&quot;
 
-[[&quot;There&#39;s something more, isn&#39;t there?&quot; -&gt;Nab: Thinks it means]]</tw-passagedata><tw-passagedata pid="24" name="Nab: Didn&#39;t tell Kisha" tags="" position="1800,100" size="100,100">He is quiet for long enough that you wonder if he heard you.
+[[&quot;There&#39;s something more, isn&#39;t there?&quot; -&gt;Nab: Thinks it means]]</tw-passagedata><tw-passagedata pid="24" name="Nab: Didn&#39;t tell Kisha" tags="" position="1700,50" size="100,100">He is quiet for long enough that you wonder if he heard you.
 
 &quot;Kisha is Base Caste,&quot; he says finally. &quot;She works the deep tunnels because the Priesthood assigns her there. If she had come to me a year ago with what she found today, and I had told her what I suspected, and she had repeated it to the wrong person...&quot; He stops. &quot;The Priesthood doesn&#39;t demote miners.&quot;
 
@@ -289,7 +289,7 @@ He picks up the tablet and returns it to its place in the stack. Precise. Practi
 He looks at you with the expression of a man who has just said more than he intended.
 
 [[&quot;What do you mean?&quot; -&gt;Nab: Inside the mountain]]
-[[Say nothing]]</tw-passagedata><tw-passagedata pid="25" name="Nab: Inside the mountain" tags="" position="1950,150" size="100,100">(set: $suspicion to $suspicion + 1)
+[[Say nothing]]</tw-passagedata><tw-passagedata pid="25" name="Nab: Inside the mountain" tags="" position="1850,100" size="100,100">(set: $suspicion to $suspicion + 1)
 &quot;I don&#39;t know,&quot; he says. &quot;Not precisely.&quot;
 
 He sits down across from you, which he hasn&#39;t done until now.
@@ -305,7 +305,7 @@ He says the last word the way people say things they have thought many times in 
 Outside, somewhere in the market, something metallic drops against stone.
 
 [[Nab: Thinks it means]]
-</tw-passagedata><tw-passagedata pid="26" name="Say nothing" tags="" position="1950,25" size="100,100">You don&#39;t say anything.
+</tw-passagedata><tw-passagedata pid="26" name="Say nothing" tags="" position="1850,0" size="100,100">You don&#39;t say anything.
 
 The lamp holds. The wind moves outside.
 
@@ -316,7 +316,7 @@ He looks up.
 &quot;If she has found the upper section outside the boundary,&quot; he says slowly, &quot;then she has more knowledge of it&#39;s size than I do. Three years of numbers and she walked to it in an afternoon.&quot;
 There is something in his voice that might be wonder and might be grief.
 
-[[Nab: Thinks it means]]</tw-passagedata><tw-passagedata pid="27" name="Nab: Thinks it means" tags="" position="2100,200" size="100,100">(set: $nabComplete to true)
+[[Nab: Thinks it means]]</tw-passagedata><tw-passagedata pid="27" name="Nab: Thinks it means" tags="" position="2000,150" size="100,100">(set: $nabComplete to true)
 &quot;The readings never decay,&quot; Nab says. &quot;I&#39;ve taken the same measurements every season for three years. The signature is identical each time, down to the smallest variance.&quot; He pauses. &quot;That shouldn&#39;t be possible. Any magnetic source loses coherence over time. Ore deposits drift. Even the best lodestone weakens eventually.&quot;
 
 He looks at the tablet stack.
@@ -329,7 +329,7 @@ He looks at the tablet stack.
 
 The room is very quiet.
 
-[[&quot;Wait. That means....&quot; -&gt;Nab: Shock]]</tw-passagedata><tw-passagedata pid="28" name="Place: Workshop" tags="" position="1300,450" size="100,100">Nab doesn&#39;t look up when you come back through the door.
+[[&quot;Wait. That means....&quot; -&gt;Nab: Shock]]</tw-passagedata><tw-passagedata pid="28" name="Place: Workshop" tags="" position="1200,400" size="100,100">Nab doesn&#39;t look up when you come back through the door.
 
 &quot;Forgot something?&quot; he says.
 
@@ -337,7 +337,7 @@ The room is very quiet.
 
 [[You leave through the door. -&gt;Place: Streets]]
 [[&quot;What was that conversation between you and Kisha?&quot; -&gt;Nab: You Ask]]
-</tw-passagedata><tw-passagedata pid="29" name="Nab: Shock" tags="" position="2150,350" size="100,100">&quot;I was afraid that knowing would make her go looking. Which is exactly what happened anyway.&quot;
+</tw-passagedata><tw-passagedata pid="29" name="Nab: Shock" tags="" position="2050,300" size="100,100">&quot;I was afraid that knowing would make her go looking. Which is exactly what happened anyway.&quot;
 
 He knew before she came through the door today. He has known for years. And Kisha stood in this room, unaware. I could see the weariness in his face. She was right, and she has no idea how long that knowledge has been sitting here without her.
 
@@ -350,7 +350,7 @@ He is back at his instruments. His hands are steady.
 He doesn&#39;t deny it.
 
 [[Walk out the Door. -&gt;Place: Streets]]
-</tw-passagedata><tw-passagedata pid="30" name="Ending B: The Rift" tags="" position="2300,700" size="100,100">You find Kisha near the northern wall as the last light leaves the sky.
+</tw-passagedata><tw-passagedata pid="30" name="Ending B: The Rift" tags="" position="2500,975" size="100,100">You find Kisha near the northern wall as the last light leaves the sky.
 
 She sees your face and goes still.
 
@@ -377,7 +377,7 @@ The settlement settles into evening around you, ordinary and unhurried.
 
 Somewhere inside that mountain, something waits with the patience of a thing that does not need to hurry.
 
-The end. For now.</tw-passagedata><tw-passagedata pid="31" name="The Site" tags="" position="2000,1100" size="100,100">&quot;The upper section is outside the northern boundary,&quot; she says. &quot;Past the last marker, maybe forty minutes into the desert. You wouldn&#39;t find it by looking. The surface is completely invisible against the rock face.&quot; She pauses. &quot;But the dust behaves wrong near it. Fine magnetic dust, the kind that settles in the deep tunnels. Out in the desert it drifts differently near the structure. Patches of it suspended slightly, or scattered in arcs where they shouldn&#39;t be.&quot;
+The end. For now.</tw-passagedata><tw-passagedata pid="31" name="The Site" tags="" position="1900,1050" size="100,100">&quot;The upper section is outside the northern boundary,&quot; she says. &quot;Past the last marker, maybe forty minutes into the desert. You wouldn&#39;t find it by looking. The surface is completely invisible against the rock face.&quot; She pauses. &quot;But the dust behaves wrong near it. Fine magnetic dust, the kind that settles in the deep tunnels. Out in the desert it drifts differently near the structure. Patches of it suspended slightly, or scattered in arcs where they shouldn&#39;t be.&quot;
 
 She draws something in the air with two fingers. A rough outline. Narrow at the top, widening slightly as it descends.
 
@@ -388,11 +388,11 @@ She looks at you steadily.
 &quot;I don&#39;t know what it is,&quot; she says. &quot;But it didn&#39;t come from here.&quot;
 
 [[How big?]]
-[[Touched it?]]</tw-passagedata><tw-passagedata pid="32" name="How big?" tags="" position="2150,1200" size="100,100">&quot;Further than our deepest shaft,&quot; she says. &quot;I found the first traces in tunnel seven, which runs about forty metres below the settlement floor. The magnetic disturbance down there is faint but consistent.&quot; She pauses. &quot;Whatever it is, it starts above the desert and goes down past where we&#39;ve dug. We haven&#39;t hit the bottom of it.&quot;
+[[Touched it?]]</tw-passagedata><tw-passagedata pid="32" name="How big?" tags="" position="2050,1150" size="100,100">&quot;Further than our deepest shaft,&quot; she says. &quot;I found the first traces in tunnel seven, which runs about forty metres below the settlement floor. The magnetic disturbance down there is faint but consistent.&quot; She pauses. &quot;Whatever it is, it starts above the desert and goes down past where we&#39;ve dug. We haven&#39;t hit the bottom of it.&quot;
 
 She says it without drama. Just a miner reporting a measurement.
 
-[[Place: Market Closing]]</tw-passagedata><tw-passagedata pid="33" name="Touched it?" tags="" position="2150,1000" size="100,100">Something crosses her face.
+[[Place: Market Closing]]</tw-passagedata><tw-passagedata pid="33" name="Touched it?" tags="" position="2050,950" size="100,100">Something crosses her face.
 
 &quot;Yes,&quot; she says.
 
@@ -405,7 +405,7 @@ She turns her palm upward and looks at it, the dust still ground into the crease
 She closes her hand slowly.
 &quot;I didn&#39;t stay long after that.&quot;
 
-[[Place: Market Closing]]</tw-passagedata><tw-passagedata pid="34" name="Place: Market Closing" tags="" position="2350,1100" size="100,100">(set: $kishaComplete to true)
+[[Place: Market Closing]]</tw-passagedata><tw-passagedata pid="34" name="Place: Market Closing" tags="" position="2250,1050" size="100,100">(set: $kishaComplete to true)
 The market is almost empty now. A vendor two stalls down is stacking crates with the methodical rhythm of someone ending their day. The orange light has deepened, the shadows between the buildings long and flat.
 
 Kisha watches you process what she has told you.
@@ -422,7 +422,7 @@ She pushes off the wall and moves back into the settlement without waiting for y
 
 The last of the day&#39;s light catches the mountains to the north. They look the same as they always do.
 
-[[Wander the Streets -&gt;Place: Streets]]</tw-passagedata><tw-passagedata pid="35" name="Ending A: The Site" tags="" position="2300,575" size="100,100">You go back to Bani&#39;s farm.
+[[Wander the Streets -&gt;Place: Streets]]</tw-passagedata><tw-passagedata pid="35" name="Ending A: The Site" tags="" position="2500,850" size="100,100">You go back to Bani&#39;s farm.
 
 The path runs north along the settlement wall before turning east toward the fields. From here you can see the mountains clearly, the way they sit against the darkening sky with the permanence of things that have always been there and will always be there. You have looked at them every evening for eleven days without thinking about what might be inside them.
 
@@ -437,7 +437,7 @@ Kisha said it the way you say something you have already accepted, the way you s
 You reach the farm. The lights are on in Bani&#39;s window, warm and ordinary. You stand outside for a moment longer than necessary, looking north at the mountains.
 They look the same as they always do.
 
-The end. For now.</tw-passagedata><tw-passagedata pid="36" name="Ending C: The History" tags="" position="2300,825" size="100,100">You walk back toward Bani&#39;s farm in the dark.
+The end. For now.</tw-passagedata><tw-passagedata pid="36" name="Ending C: The History" tags="" position="2500,1100" size="100,100">You walk back toward Bani&#39;s farm in the dark.
 
 Nab&#39;s last words sit with you. Longer than Abzu-Kur has stood. Longer than anyone has been keeping records. Possibly much longer.
 
@@ -457,7 +457,7 @@ You start walking again. You don&#39;t know what you know yet. You know that you
 
 Behind you, the mountains sit against the night sky, ordinary and permanent and older than anyone in Abzu-Kur has thought to ask about.
 
-The end. For now.</tw-passagedata><tw-passagedata pid="37" name="Nab: You Ask" tags="" position="1300,250" size="100,100">You ask Nab what that furtive exchange was all about.
+The end. For now.</tw-passagedata><tw-passagedata pid="37" name="Nab: You Ask" tags="" position="1200,200" size="100,100">You ask Nab what that furtive exchange was all about.
 
 He sets down the instrument in his hand with the careful deliberateness of someone buying time. Then he looks at you. His expression is the same one he used on your palm earlier. Assessing. Categorising.
 
@@ -488,9 +488,128 @@ You have a bandaged hand and eleven days of being a stranger in this settlement.
 (set: $suspicion to 0)
 (set: $nabComplete to false)
 (set: $kishaComplete to false)
-}</tw-passagedata><tw-passagedata pid="40" name="Kisha: Entry" tags="" position="1300,1300" size="100,100">(set: $kishaFirst to true)
+}
+</tw-passagedata><tw-passagedata pid="40" name="Kisha: Entry" tags="" position="1200,1250" size="100,100">(set: $kishaFirst to true)
 (go-to: &quot;Kisha: Approach&quot;)</tw-passagedata><tw-passagedata pid="41" name="Nab: Entry" tags="" position="1000,500" size="100,100">(set: $kishaFirst to false)
-(go-to: &quot;Nab: You Ask&quot;)</tw-passagedata></tw-storydata>
+(go-to: &quot;Nab: You Ask&quot;)</tw-passagedata><tw-passagedata pid="42" name="Place: Cliffs" tags="" position="2500,550" size="100,100">(if: $overheard is true)[The cliff path ends at a low stone barrier, worn flat on 
+top where people have sat for generations. Beyond it the 
+rock drops away sharply. You can hear the sea before you 
+can see it, a low rhythmic sound from somewhere far below, 
+muffled by distance and stone.
+
+You made yourself known in that workshop. Kisha saw you 
+listening and decided to continue anyway. You are not sure 
+if that was trust or simply the recognition that containing 
+this was already beyond her.
+
+The water is down there somewhere. Completely unreachable 
+from here.
+](else:)[The cliff path ends at a low stone barrier, worn flat on 
+top where people have sat for generations. Beyond it the 
+rock drops away sharply. You can hear the sea before you 
+can see it, a low rhythmic sound from somewhere far below, 
+muffled by distance and stone.
+
+You stayed still in that workshop. Made yourself absent. 
+Whatever Nab and Kisha said to each other, they said it 
+believing you were not really there.
+
+The water is down there somewhere. Completely unreachable 
+from here.]
+[[Back to the street.-&gt;Place: Streets]]</tw-passagedata><tw-passagedata pid="43" name="Place: Temple" tags="" position="2500,425" size="100,100">(if: $honesty is true)[The temple sits at the centre of the settlement the way 
+things sit at centres when nobody decided to put them 
+there, they simply accumulated importance until the 
+settlement arranged itself around them. The stones are 
+old. Older than any building near it.
+
+You told Nab exactly what you heard. He looked at you 
+with the expression of someone who had been waiting for 
+that question and was not sure whether to be relieved. 
+Standing here now, you wonder what is carved into these 
+stones and whether anyone checked if it was accurate.
+
+A lamp burns above the entrance. Electric. The housing 
+is carved from the same stone as the temple walls.
+](else:)[The temple sits at the centre of the settlement the way 
+things sit at centres when nobody decided to put them 
+there, they simply accumulated importance until the 
+settlement arranged itself around them. The stones are 
+old. Older than any building near it.
+
+You told Nab less than you heard. Kept something back. 
+You are not sure why, exactly. Instinct, maybe. The same 
+instinct that keeps you from showing all of your cards 
+in a settlement that is not yours.
+
+A lamp burns above the entrance. Electric. The housing 
+is carved from the same stone as the temple walls.]
+[[Back to the street.-&gt;Place: Streets]]</tw-passagedata><tw-passagedata pid="44" name="Place: Mines" tags="" position="2500,300" size="100,100">(if: $kishaPressed is true)[The mine entrance sits at the base of the northern slope, 
+framed by two upright stones worn smooth by decades of 
+shoulders passing between them. The shift is over. Nobody 
+is going in or out.
+
+You think about what Kisha said when you pushed her. The 
+way she answered as if the words had been waiting somewhere 
+close to the surface, ready to come out at the slightest 
+pressure. She has been carrying this alone for longer than 
+today.
+
+The entrance is dark. Somewhere below it, tunnel seven runs 
+forty metres under the settlement floor.
+](else:)[The mine entrance sits at the base of the northern slope, 
+framed by two upright stones worn smooth by decades of 
+shoulders passing between them. The shift is over. Nobody 
+is going in or out.
+
+You think about Kisha. She went down there and found 
+something that has no word yet, and came back up and tried 
+to report it to the one person who already knew. You wonder 
+how long she stood in the dark before she decided to follow 
+the dust upward.
+
+The entrance is dark. Somewhere below it, tunnel seven runs 
+forty metres under the settlement floor.]
+[[Back to the street.-&gt;Place: Streets]]</tw-passagedata><tw-passagedata pid="45" name="Suspicion: Observation" tags="Observation" position="600,100" size="100,100">(if: $suspicion is 0)[
+The settlement is settling into evening around you. 
+Doors closing. Lamps coming on one by one in the 
+windows along the street. The ordinary business of 
+a day ending.
+
+Nobody pays you any particular attention. In eleven 
+days you have become familiar enough to ignore.
+](if: $suspicion is 1)[
+The settlement is settling into evening. Lamps on 
+in the windows, doors closing. The ordinary end of 
+a day.
+
+Once, a woman carrying a clay jar slows slightly 
+as she passes you. Not enough to be certain of. 
+Just a fraction. Then she is gone.
+](if: $suspicion is 2)[
+The settlement is settling into evening, but 
+something in it feels slightly adjusted. Lamps on. 
+Doors closing. People finishing their day with the 
+usual efficiency.
+
+Except that twice now someone has found a reason 
+to look somewhere else just as you looked at them. 
+In a settlement this size, that is not nothing.
+](if: $suspicion is 3)[
+The settlement has moved into evening around you 
+while you weren&#39;t paying attention to it. Lamps on. 
+Doors closed.
+
+You round a corner and find Dagan standing at the 
+junction of two streets with no obvious purpose. 
+He is watching the road toward the workshop district. 
+He sees you notice him and moves on without hurry, 
+the way someone moves when they were never really 
+there.
+
+You keep walking.
+]</tw-passagedata><tw-passagedata pid="46" name="Streets: Navigation" tags="Navigation" position="2800,450" size="100,100">[[Head toward the cliff path.-&gt;Place: Cliffs]]
+[[Pass by the temple district.-&gt;Place: Temple]]
+[[Walk toward the mine entrance.-&gt;Place: Mines]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
