@@ -1,0 +1,552 @@
+#usda 1.0
+(
+    "Exported from Adobe Substance 3D Painter 11.0.2"
+    defaultPrim = "Goobert_low"
+)
+
+def "Goobert_low"
+{
+    def Scope "material"
+    {
+        def Material "head_low" (
+            customData = {
+                dictionary adobe = {
+                    dictionary painter = {
+                        asset painterProject_spp = @C:/Github/BVC-Winter-2026/SubstancePainterProjects/Goobert.spp@
+                    }
+                }
+            }
+        )
+        {
+            asset inputs:compositedNormalGL_tex = @Goobert_textures/Goobert_head_low_Normal.png@
+            asset inputs:opacity_tex = @Goobert_textures/Goobert_head_low_AlbedoTransparency.png@
+            token outputs:adobe:surface.connect = </Goobert_low/material/head_low/AdobeStandardMaterial_4_0/AdobeStandardMaterial_4_0Shader.outputs:surface>
+            token outputs:displacement.connect = </Goobert_low/material/head_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:displacement>
+            token outputs:surface.connect = </Goobert_low/material/head_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:surface>
+
+            def NodeGraph "UsdPreviewSurface"
+            {
+                def Shader "UsdPreviewSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    float inputs:ior = 1.5
+                    normal3f inputs:normal.connect = </Goobert_low/material/head_low/UsdPreviewSurface/normalTextureShader.outputs:rgb>
+                    token outputs:displacement
+                    token outputs:surface
+                }
+
+                def Shader "TexCoordReader"
+                {
+                    uniform token info:id = "UsdPrimvarReader_float2"
+                    token inputs:varname = "st"
+                    float2 outputs:result
+                }
+
+                def Shader "normalTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    float4 inputs:bias = (-1, -1, -1, 0)
+                    asset inputs:file.connect = </Goobert_low/material/head_low.inputs:compositedNormalGL_tex>
+                    float4 inputs:scale = (2, 2, 2, 1)
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Goobert_low/material/head_low/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    normal3f outputs:rgb
+                }
+            }
+
+            def NodeGraph "AdobeStandardMaterial_4_0"
+            {
+                def Shader "AdobeStandardMaterial_4_0Shader"
+                {
+                    uniform token info:id = "AdobeStandardMaterial_4_0"
+                    float inputs:IOR = 1.5
+                    normal3f inputs:normal.connect = </Goobert_low/material/head_low/AdobeStandardMaterial_4_0/normalTextureShader.outputs:rgb>
+                    token outputs:surface
+                }
+
+                def Shader "TexCoordReader"
+                {
+                    uniform token info:id = "UsdPrimvarReader_float2"
+                    token inputs:varname = "st"
+                    float2 outputs:result
+                }
+
+                def Shader "normalTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    float4 inputs:bias = (-1, -1, -1, 0)
+                    asset inputs:file.connect = </Goobert_low/material/head_low.inputs:compositedNormalGL_tex>
+                    float4 inputs:scale = (2, 2, 2, 1)
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Goobert_low/material/head_low/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    normal3f outputs:rgb
+                }
+            }
+        }
+
+        def Material "eyes_low" (
+            customData = {
+                dictionary adobe = {
+                    dictionary painter = {
+                        asset painterProject_spp = @C:/Github/BVC-Winter-2026/SubstancePainterProjects/Goobert.spp@
+                    }
+                }
+            }
+        )
+        {
+            asset inputs:compositedNormalGL_tex = @Goobert_textures/Goobert_eyes_low_Normal.png@
+            asset inputs:opacity_tex = @Goobert_textures/Goobert_eyes_low_AlbedoTransparency.png@
+            token outputs:adobe:surface.connect = </Goobert_low/material/eyes_low/AdobeStandardMaterial_4_0/AdobeStandardMaterial_4_0Shader.outputs:surface>
+            token outputs:displacement.connect = </Goobert_low/material/eyes_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:displacement>
+            token outputs:surface.connect = </Goobert_low/material/eyes_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:surface>
+
+            def NodeGraph "UsdPreviewSurface"
+            {
+                def Shader "UsdPreviewSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    float inputs:ior = 1.5
+                    normal3f inputs:normal.connect = </Goobert_low/material/eyes_low/UsdPreviewSurface/normalTextureShader.outputs:rgb>
+                    token outputs:displacement
+                    token outputs:surface
+                }
+
+                def Shader "TexCoordReader"
+                {
+                    uniform token info:id = "UsdPrimvarReader_float2"
+                    token inputs:varname = "st"
+                    float2 outputs:result
+                }
+
+                def Shader "normalTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    float4 inputs:bias = (-1, -1, -1, 0)
+                    asset inputs:file.connect = </Goobert_low/material/eyes_low.inputs:compositedNormalGL_tex>
+                    float4 inputs:scale = (2, 2, 2, 1)
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Goobert_low/material/eyes_low/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    normal3f outputs:rgb
+                }
+            }
+
+            def NodeGraph "AdobeStandardMaterial_4_0"
+            {
+                def Shader "AdobeStandardMaterial_4_0Shader"
+                {
+                    uniform token info:id = "AdobeStandardMaterial_4_0"
+                    float inputs:IOR = 1.5
+                    normal3f inputs:normal.connect = </Goobert_low/material/eyes_low/AdobeStandardMaterial_4_0/normalTextureShader.outputs:rgb>
+                    token outputs:surface
+                }
+
+                def Shader "TexCoordReader"
+                {
+                    uniform token info:id = "UsdPrimvarReader_float2"
+                    token inputs:varname = "st"
+                    float2 outputs:result
+                }
+
+                def Shader "normalTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    float4 inputs:bias = (-1, -1, -1, 0)
+                    asset inputs:file.connect = </Goobert_low/material/eyes_low.inputs:compositedNormalGL_tex>
+                    float4 inputs:scale = (2, 2, 2, 1)
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Goobert_low/material/eyes_low/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    normal3f outputs:rgb
+                }
+            }
+        }
+
+        def Material "shirt_low" (
+            customData = {
+                dictionary adobe = {
+                    dictionary painter = {
+                        asset painterProject_spp = @C:/Github/BVC-Winter-2026/SubstancePainterProjects/Goobert.spp@
+                    }
+                }
+            }
+        )
+        {
+            asset inputs:compositedNormalGL_tex = @Goobert_textures/Goobert_shirt_low_Normal.png@
+            asset inputs:opacity_tex = @Goobert_textures/Goobert_shirt_low_AlbedoTransparency.png@
+            token outputs:adobe:surface.connect = </Goobert_low/material/shirt_low/AdobeStandardMaterial_4_0/AdobeStandardMaterial_4_0Shader.outputs:surface>
+            token outputs:displacement.connect = </Goobert_low/material/shirt_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:displacement>
+            token outputs:surface.connect = </Goobert_low/material/shirt_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:surface>
+
+            def NodeGraph "UsdPreviewSurface"
+            {
+                def Shader "UsdPreviewSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    float inputs:ior = 1.5
+                    normal3f inputs:normal.connect = </Goobert_low/material/shirt_low/UsdPreviewSurface/normalTextureShader.outputs:rgb>
+                    token outputs:displacement
+                    token outputs:surface
+                }
+
+                def Shader "TexCoordReader"
+                {
+                    uniform token info:id = "UsdPrimvarReader_float2"
+                    token inputs:varname = "st"
+                    float2 outputs:result
+                }
+
+                def Shader "normalTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    float4 inputs:bias = (-1, -1, -1, 0)
+                    asset inputs:file.connect = </Goobert_low/material/shirt_low.inputs:compositedNormalGL_tex>
+                    float4 inputs:scale = (2, 2, 2, 1)
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Goobert_low/material/shirt_low/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    normal3f outputs:rgb
+                }
+            }
+
+            def NodeGraph "AdobeStandardMaterial_4_0"
+            {
+                def Shader "AdobeStandardMaterial_4_0Shader"
+                {
+                    uniform token info:id = "AdobeStandardMaterial_4_0"
+                    float inputs:IOR = 1.5
+                    normal3f inputs:normal.connect = </Goobert_low/material/shirt_low/AdobeStandardMaterial_4_0/normalTextureShader.outputs:rgb>
+                    token outputs:surface
+                }
+
+                def Shader "TexCoordReader"
+                {
+                    uniform token info:id = "UsdPrimvarReader_float2"
+                    token inputs:varname = "st"
+                    float2 outputs:result
+                }
+
+                def Shader "normalTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    float4 inputs:bias = (-1, -1, -1, 0)
+                    asset inputs:file.connect = </Goobert_low/material/shirt_low.inputs:compositedNormalGL_tex>
+                    float4 inputs:scale = (2, 2, 2, 1)
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Goobert_low/material/shirt_low/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    normal3f outputs:rgb
+                }
+            }
+        }
+
+        def Material "hands_low" (
+            customData = {
+                dictionary adobe = {
+                    dictionary painter = {
+                        asset painterProject_spp = @C:/Github/BVC-Winter-2026/SubstancePainterProjects/Goobert.spp@
+                    }
+                }
+            }
+        )
+        {
+            asset inputs:compositedNormalGL_tex = @Goobert_textures/Goobert_hands_low_Normal.png@
+            asset inputs:opacity_tex = @Goobert_textures/Goobert_hands_low_AlbedoTransparency.png@
+            token outputs:adobe:surface.connect = </Goobert_low/material/hands_low/AdobeStandardMaterial_4_0/AdobeStandardMaterial_4_0Shader.outputs:surface>
+            token outputs:displacement.connect = </Goobert_low/material/hands_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:displacement>
+            token outputs:surface.connect = </Goobert_low/material/hands_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:surface>
+
+            def NodeGraph "UsdPreviewSurface"
+            {
+                def Shader "UsdPreviewSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    float inputs:ior = 1.5
+                    normal3f inputs:normal.connect = </Goobert_low/material/hands_low/UsdPreviewSurface/normalTextureShader.outputs:rgb>
+                    token outputs:displacement
+                    token outputs:surface
+                }
+
+                def Shader "TexCoordReader"
+                {
+                    uniform token info:id = "UsdPrimvarReader_float2"
+                    token inputs:varname = "st"
+                    float2 outputs:result
+                }
+
+                def Shader "normalTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    float4 inputs:bias = (-1, -1, -1, 0)
+                    asset inputs:file.connect = </Goobert_low/material/hands_low.inputs:compositedNormalGL_tex>
+                    float4 inputs:scale = (2, 2, 2, 1)
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Goobert_low/material/hands_low/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    normal3f outputs:rgb
+                }
+            }
+
+            def NodeGraph "AdobeStandardMaterial_4_0"
+            {
+                def Shader "AdobeStandardMaterial_4_0Shader"
+                {
+                    uniform token info:id = "AdobeStandardMaterial_4_0"
+                    float inputs:IOR = 1.5
+                    normal3f inputs:normal.connect = </Goobert_low/material/hands_low/AdobeStandardMaterial_4_0/normalTextureShader.outputs:rgb>
+                    token outputs:surface
+                }
+
+                def Shader "TexCoordReader"
+                {
+                    uniform token info:id = "UsdPrimvarReader_float2"
+                    token inputs:varname = "st"
+                    float2 outputs:result
+                }
+
+                def Shader "normalTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    float4 inputs:bias = (-1, -1, -1, 0)
+                    asset inputs:file.connect = </Goobert_low/material/hands_low.inputs:compositedNormalGL_tex>
+                    float4 inputs:scale = (2, 2, 2, 1)
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Goobert_low/material/hands_low/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    normal3f outputs:rgb
+                }
+            }
+        }
+
+        def Material "pants_low" (
+            customData = {
+                dictionary adobe = {
+                    dictionary painter = {
+                        asset painterProject_spp = @C:/Github/BVC-Winter-2026/SubstancePainterProjects/Goobert.spp@
+                    }
+                }
+            }
+        )
+        {
+            asset inputs:compositedNormalGL_tex = @Goobert_textures/Goobert_pants_low_Normal.png@
+            asset inputs:opacity_tex = @Goobert_textures/Goobert_pants_low_AlbedoTransparency.png@
+            token outputs:adobe:surface.connect = </Goobert_low/material/pants_low/AdobeStandardMaterial_4_0/AdobeStandardMaterial_4_0Shader.outputs:surface>
+            token outputs:displacement.connect = </Goobert_low/material/pants_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:displacement>
+            token outputs:surface.connect = </Goobert_low/material/pants_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:surface>
+
+            def NodeGraph "UsdPreviewSurface"
+            {
+                def Shader "UsdPreviewSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    float inputs:ior = 1.5
+                    normal3f inputs:normal.connect = </Goobert_low/material/pants_low/UsdPreviewSurface/normalTextureShader.outputs:rgb>
+                    token outputs:displacement
+                    token outputs:surface
+                }
+
+                def Shader "TexCoordReader"
+                {
+                    uniform token info:id = "UsdPrimvarReader_float2"
+                    token inputs:varname = "st"
+                    float2 outputs:result
+                }
+
+                def Shader "normalTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    float4 inputs:bias = (-1, -1, -1, 0)
+                    asset inputs:file.connect = </Goobert_low/material/pants_low.inputs:compositedNormalGL_tex>
+                    float4 inputs:scale = (2, 2, 2, 1)
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Goobert_low/material/pants_low/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    normal3f outputs:rgb
+                }
+            }
+
+            def NodeGraph "AdobeStandardMaterial_4_0"
+            {
+                def Shader "AdobeStandardMaterial_4_0Shader"
+                {
+                    uniform token info:id = "AdobeStandardMaterial_4_0"
+                    float inputs:IOR = 1.5
+                    normal3f inputs:normal.connect = </Goobert_low/material/pants_low/AdobeStandardMaterial_4_0/normalTextureShader.outputs:rgb>
+                    token outputs:surface
+                }
+
+                def Shader "TexCoordReader"
+                {
+                    uniform token info:id = "UsdPrimvarReader_float2"
+                    token inputs:varname = "st"
+                    float2 outputs:result
+                }
+
+                def Shader "normalTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    float4 inputs:bias = (-1, -1, -1, 0)
+                    asset inputs:file.connect = </Goobert_low/material/pants_low.inputs:compositedNormalGL_tex>
+                    float4 inputs:scale = (2, 2, 2, 1)
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Goobert_low/material/pants_low/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    normal3f outputs:rgb
+                }
+            }
+        }
+
+        def Material "feet_low" (
+            customData = {
+                dictionary adobe = {
+                    dictionary painter = {
+                        asset painterProject_spp = @C:/Github/BVC-Winter-2026/SubstancePainterProjects/Goobert.spp@
+                    }
+                }
+            }
+        )
+        {
+            asset inputs:compositedNormalGL_tex = @Goobert_textures/Goobert_feet_low_Normal.png@
+            asset inputs:opacity_tex = @Goobert_textures/Goobert_feet_low_AlbedoTransparency.png@
+            token outputs:adobe:surface.connect = </Goobert_low/material/feet_low/AdobeStandardMaterial_4_0/AdobeStandardMaterial_4_0Shader.outputs:surface>
+            token outputs:displacement.connect = </Goobert_low/material/feet_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:displacement>
+            token outputs:surface.connect = </Goobert_low/material/feet_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:surface>
+
+            def NodeGraph "UsdPreviewSurface"
+            {
+                def Shader "UsdPreviewSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    float inputs:ior = 1.5
+                    normal3f inputs:normal.connect = </Goobert_low/material/feet_low/UsdPreviewSurface/normalTextureShader.outputs:rgb>
+                    token outputs:displacement
+                    token outputs:surface
+                }
+
+                def Shader "TexCoordReader"
+                {
+                    uniform token info:id = "UsdPrimvarReader_float2"
+                    token inputs:varname = "st"
+                    float2 outputs:result
+                }
+
+                def Shader "normalTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    float4 inputs:bias = (-1, -1, -1, 0)
+                    asset inputs:file.connect = </Goobert_low/material/feet_low.inputs:compositedNormalGL_tex>
+                    float4 inputs:scale = (2, 2, 2, 1)
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Goobert_low/material/feet_low/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    normal3f outputs:rgb
+                }
+            }
+
+            def NodeGraph "AdobeStandardMaterial_4_0"
+            {
+                def Shader "AdobeStandardMaterial_4_0Shader"
+                {
+                    uniform token info:id = "AdobeStandardMaterial_4_0"
+                    float inputs:IOR = 1.5
+                    normal3f inputs:normal.connect = </Goobert_low/material/feet_low/AdobeStandardMaterial_4_0/normalTextureShader.outputs:rgb>
+                    token outputs:surface
+                }
+
+                def Shader "TexCoordReader"
+                {
+                    uniform token info:id = "UsdPrimvarReader_float2"
+                    token inputs:varname = "st"
+                    float2 outputs:result
+                }
+
+                def Shader "normalTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    float4 inputs:bias = (-1, -1, -1, 0)
+                    asset inputs:file.connect = </Goobert_low/material/feet_low.inputs:compositedNormalGL_tex>
+                    float4 inputs:scale = (2, 2, 2, 1)
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Goobert_low/material/feet_low/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    normal3f outputs:rgb
+                }
+            }
+        }
+    }
+
+    over "Head_low"
+    {
+        over "Head_low" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Goobert_low/material/head_low>
+        }
+    }
+
+    over "Eyes_low"
+    {
+        over "Eyes_low" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Goobert_low/material/eyes_low>
+        }
+    }
+
+    over "Shirt_low"
+    {
+        over "Shirt_low" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Goobert_low/material/shirt_low>
+        }
+    }
+
+    over "Hands_low"
+    {
+        over "Hands_low" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Goobert_low/material/hands_low>
+        }
+    }
+
+    over "Pants_low"
+    {
+        over "Pants_low" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Goobert_low/material/pants_low>
+        }
+    }
+
+    over "Feet_low"
+    {
+        over "Feet_low" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Goobert_low/material/feet_low>
+        }
+    }
+}
+

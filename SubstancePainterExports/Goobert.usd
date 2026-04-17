@@ -1,0 +1,15 @@
+#usda 1.0
+(
+    "Exported from Adobe Substance 3D Painter 11.0.2"
+    defaultPrim = "Goobert_low"
+    subLayers = [
+        @./Goobert.material.usda@
+    ]
+)
+
+def "Goobert_low" (
+    prepend references = @./Goobert.geo.usd@
+)
+{
+}
+
