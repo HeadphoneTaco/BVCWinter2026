@@ -18,8 +18,8 @@ def "Goobert_low"
             }
         )
         {
-            asset inputs:compositedNormalGL_tex = @Goobert_textures/Goobert_head_low_Normal.png@
-            asset inputs:opacity_tex = @Goobert_textures/Goobert_head_low_AlbedoTransparency.png@
+            asset inputs:compositedNormalGL_tex = @Goobert_textures/Goobertlow_head_low_Normal.png@
+            asset inputs:opacity_tex = @Goobert_textures/Goobertlow_head_low_AlbedoTransparency.png@
             token outputs:adobe:surface.connect = </Goobert_low/material/head_low/AdobeStandardMaterial_4_0/AdobeStandardMaterial_4_0Shader.outputs:surface>
             token outputs:displacement.connect = </Goobert_low/material/head_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:displacement>
             token outputs:surface.connect = </Goobert_low/material/head_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:surface>
@@ -98,8 +98,8 @@ def "Goobert_low"
             }
         )
         {
-            asset inputs:compositedNormalGL_tex = @Goobert_textures/Goobert_eyes_low_Normal.png@
-            asset inputs:opacity_tex = @Goobert_textures/Goobert_eyes_low_AlbedoTransparency.png@
+            asset inputs:compositedNormalGL_tex = @Goobert_textures/Goobertlow_eyes_low_Normal.png@
+            asset inputs:opacity_tex = @Goobert_textures/Goobertlow_eyes_low_AlbedoTransparency.png@
             token outputs:adobe:surface.connect = </Goobert_low/material/eyes_low/AdobeStandardMaterial_4_0/AdobeStandardMaterial_4_0Shader.outputs:surface>
             token outputs:displacement.connect = </Goobert_low/material/eyes_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:displacement>
             token outputs:surface.connect = </Goobert_low/material/eyes_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:surface>
@@ -178,8 +178,8 @@ def "Goobert_low"
             }
         )
         {
-            asset inputs:compositedNormalGL_tex = @Goobert_textures/Goobert_shirt_low_Normal.png@
-            asset inputs:opacity_tex = @Goobert_textures/Goobert_shirt_low_AlbedoTransparency.png@
+            asset inputs:compositedNormalGL_tex = @Goobert_textures/Goobertlow_shirt_low_Normal.png@
+            asset inputs:opacity_tex = @Goobert_textures/Goobertlow_shirt_low_AlbedoTransparency.png@
             token outputs:adobe:surface.connect = </Goobert_low/material/shirt_low/AdobeStandardMaterial_4_0/AdobeStandardMaterial_4_0Shader.outputs:surface>
             token outputs:displacement.connect = </Goobert_low/material/shirt_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:displacement>
             token outputs:surface.connect = </Goobert_low/material/shirt_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:surface>
@@ -258,8 +258,8 @@ def "Goobert_low"
             }
         )
         {
-            asset inputs:compositedNormalGL_tex = @Goobert_textures/Goobert_hands_low_Normal.png@
-            asset inputs:opacity_tex = @Goobert_textures/Goobert_hands_low_AlbedoTransparency.png@
+            asset inputs:compositedNormalGL_tex = @Goobert_textures/Goobertlow_hands_low_Normal.png@
+            asset inputs:opacity_tex = @Goobert_textures/Goobertlow_hands_low_AlbedoTransparency.png@
             token outputs:adobe:surface.connect = </Goobert_low/material/hands_low/AdobeStandardMaterial_4_0/AdobeStandardMaterial_4_0Shader.outputs:surface>
             token outputs:displacement.connect = </Goobert_low/material/hands_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:displacement>
             token outputs:surface.connect = </Goobert_low/material/hands_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:surface>
@@ -338,8 +338,8 @@ def "Goobert_low"
             }
         )
         {
-            asset inputs:compositedNormalGL_tex = @Goobert_textures/Goobert_pants_low_Normal.png@
-            asset inputs:opacity_tex = @Goobert_textures/Goobert_pants_low_AlbedoTransparency.png@
+            asset inputs:compositedNormalGL_tex = @Goobert_textures/Goobertlow_pants_low_Normal.png@
+            asset inputs:opacity_tex = @Goobert_textures/Goobertlow_pants_low_AlbedoTransparency.png@
             token outputs:adobe:surface.connect = </Goobert_low/material/pants_low/AdobeStandardMaterial_4_0/AdobeStandardMaterial_4_0Shader.outputs:surface>
             token outputs:displacement.connect = </Goobert_low/material/pants_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:displacement>
             token outputs:surface.connect = </Goobert_low/material/pants_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:surface>
@@ -418,8 +418,8 @@ def "Goobert_low"
             }
         )
         {
-            asset inputs:compositedNormalGL_tex = @Goobert_textures/Goobert_feet_low_Normal.png@
-            asset inputs:opacity_tex = @Goobert_textures/Goobert_feet_low_AlbedoTransparency.png@
+            asset inputs:compositedNormalGL_tex = @Goobert_textures/Goobertlow_feet_low_Normal.png@
+            asset inputs:opacity_tex = @Goobert_textures/Goobertlow_feet_low_AlbedoTransparency.png@
             token outputs:adobe:surface.connect = </Goobert_low/material/feet_low/AdobeStandardMaterial_4_0/AdobeStandardMaterial_4_0Shader.outputs:surface>
             token outputs:displacement.connect = </Goobert_low/material/feet_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:displacement>
             token outputs:surface.connect = </Goobert_low/material/feet_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:surface>
