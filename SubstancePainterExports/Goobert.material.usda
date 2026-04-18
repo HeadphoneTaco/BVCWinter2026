@@ -18,7 +18,9 @@ def "Goobert_low"
             }
         )
         {
+            asset inputs:basecolor_tex = @Goobert_textures/Goobertlow_head_low_AlbedoTransparency.png@
             asset inputs:compositedNormalGL_tex = @Goobert_textures/Goobertlow_head_low_Normal.png@
+            asset inputs:metallic_tex = @Goobert_textures/Goobertlow_head_low_MetallicSmoothness.png@
             asset inputs:opacity_tex = @Goobert_textures/Goobertlow_head_low_AlbedoTransparency.png@
             token outputs:adobe:surface.connect = </Goobert_low/material/head_low/AdobeStandardMaterial_4_0/AdobeStandardMaterial_4_0Shader.outputs:surface>
             token outputs:displacement.connect = </Goobert_low/material/head_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:displacement>
@@ -29,7 +31,9 @@ def "Goobert_low"
                 def Shader "UsdPreviewSurfaceShader"
                 {
                     uniform token info:id = "UsdPreviewSurface"
+                    float3 inputs:diffuseColor.connect = </Goobert_low/material/head_low/UsdPreviewSurface/diffuseColorTextureShader.outputs:rgb>
                     float inputs:ior = 1.5
+                    float inputs:metallic.connect = </Goobert_low/material/head_low/UsdPreviewSurface/metallicTextureShader.outputs:r>
                     normal3f inputs:normal.connect = </Goobert_low/material/head_low/UsdPreviewSurface/normalTextureShader.outputs:rgb>
                     token outputs:displacement
                     token outputs:surface
@@ -40,6 +44,28 @@ def "Goobert_low"
                     uniform token info:id = "UsdPrimvarReader_float2"
                     token inputs:varname = "st"
                     float2 outputs:result
+                }
+
+                def Shader "diffuseColorTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Goobert_low/material/head_low.inputs:basecolor_tex>
+                    token inputs:sourceColorSpace = "sRGB"
+                    float2 inputs:st.connect = </Goobert_low/material/head_low/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float3 outputs:rgb
+                }
+
+                def Shader "metallicTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Goobert_low/material/head_low.inputs:metallic_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Goobert_low/material/head_low/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:r
                 }
 
                 def Shader "normalTextureShader"
@@ -61,7 +87,9 @@ def "Goobert_low"
                 def Shader "AdobeStandardMaterial_4_0Shader"
                 {
                     uniform token info:id = "AdobeStandardMaterial_4_0"
+                    float3 inputs:baseColor.connect = </Goobert_low/material/head_low/AdobeStandardMaterial_4_0/baseColorTextureShader.outputs:rgb>
                     float inputs:IOR = 1.5
+                    float inputs:metallic.connect = </Goobert_low/material/head_low/AdobeStandardMaterial_4_0/metallicTextureShader.outputs:r>
                     normal3f inputs:normal.connect = </Goobert_low/material/head_low/AdobeStandardMaterial_4_0/normalTextureShader.outputs:rgb>
                     token outputs:surface
                 }
@@ -71,6 +99,28 @@ def "Goobert_low"
                     uniform token info:id = "UsdPrimvarReader_float2"
                     token inputs:varname = "st"
                     float2 outputs:result
+                }
+
+                def Shader "baseColorTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Goobert_low/material/head_low.inputs:basecolor_tex>
+                    token inputs:sourceColorSpace = "sRGB"
+                    float2 inputs:st.connect = </Goobert_low/material/head_low/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float3 outputs:rgb
+                }
+
+                def Shader "metallicTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Goobert_low/material/head_low.inputs:metallic_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Goobert_low/material/head_low/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:r
                 }
 
                 def Shader "normalTextureShader"
@@ -98,7 +148,9 @@ def "Goobert_low"
             }
         )
         {
+            asset inputs:basecolor_tex = @Goobert_textures/Goobertlow_eyes_low_AlbedoTransparency.png@
             asset inputs:compositedNormalGL_tex = @Goobert_textures/Goobertlow_eyes_low_Normal.png@
+            asset inputs:metallic_tex = @Goobert_textures/Goobertlow_eyes_low_MetallicSmoothness.png@
             asset inputs:opacity_tex = @Goobert_textures/Goobertlow_eyes_low_AlbedoTransparency.png@
             token outputs:adobe:surface.connect = </Goobert_low/material/eyes_low/AdobeStandardMaterial_4_0/AdobeStandardMaterial_4_0Shader.outputs:surface>
             token outputs:displacement.connect = </Goobert_low/material/eyes_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:displacement>
@@ -109,7 +161,9 @@ def "Goobert_low"
                 def Shader "UsdPreviewSurfaceShader"
                 {
                     uniform token info:id = "UsdPreviewSurface"
+                    float3 inputs:diffuseColor.connect = </Goobert_low/material/eyes_low/UsdPreviewSurface/diffuseColorTextureShader.outputs:rgb>
                     float inputs:ior = 1.5
+                    float inputs:metallic.connect = </Goobert_low/material/eyes_low/UsdPreviewSurface/metallicTextureShader.outputs:r>
                     normal3f inputs:normal.connect = </Goobert_low/material/eyes_low/UsdPreviewSurface/normalTextureShader.outputs:rgb>
                     token outputs:displacement
                     token outputs:surface
@@ -120,6 +174,28 @@ def "Goobert_low"
                     uniform token info:id = "UsdPrimvarReader_float2"
                     token inputs:varname = "st"
                     float2 outputs:result
+                }
+
+                def Shader "diffuseColorTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Goobert_low/material/eyes_low.inputs:basecolor_tex>
+                    token inputs:sourceColorSpace = "sRGB"
+                    float2 inputs:st.connect = </Goobert_low/material/eyes_low/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float3 outputs:rgb
+                }
+
+                def Shader "metallicTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Goobert_low/material/eyes_low.inputs:metallic_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Goobert_low/material/eyes_low/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:r
                 }
 
                 def Shader "normalTextureShader"
@@ -141,7 +217,9 @@ def "Goobert_low"
                 def Shader "AdobeStandardMaterial_4_0Shader"
                 {
                     uniform token info:id = "AdobeStandardMaterial_4_0"
+                    float3 inputs:baseColor.connect = </Goobert_low/material/eyes_low/AdobeStandardMaterial_4_0/baseColorTextureShader.outputs:rgb>
                     float inputs:IOR = 1.5
+                    float inputs:metallic.connect = </Goobert_low/material/eyes_low/AdobeStandardMaterial_4_0/metallicTextureShader.outputs:r>
                     normal3f inputs:normal.connect = </Goobert_low/material/eyes_low/AdobeStandardMaterial_4_0/normalTextureShader.outputs:rgb>
                     token outputs:surface
                 }
@@ -151,6 +229,28 @@ def "Goobert_low"
                     uniform token info:id = "UsdPrimvarReader_float2"
                     token inputs:varname = "st"
                     float2 outputs:result
+                }
+
+                def Shader "baseColorTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Goobert_low/material/eyes_low.inputs:basecolor_tex>
+                    token inputs:sourceColorSpace = "sRGB"
+                    float2 inputs:st.connect = </Goobert_low/material/eyes_low/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float3 outputs:rgb
+                }
+
+                def Shader "metallicTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Goobert_low/material/eyes_low.inputs:metallic_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Goobert_low/material/eyes_low/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:r
                 }
 
                 def Shader "normalTextureShader"
@@ -178,7 +278,9 @@ def "Goobert_low"
             }
         )
         {
+            asset inputs:basecolor_tex = @Goobert_textures/Goobertlow_shirt_low_AlbedoTransparency.png@
             asset inputs:compositedNormalGL_tex = @Goobert_textures/Goobertlow_shirt_low_Normal.png@
+            asset inputs:metallic_tex = @Goobert_textures/Goobertlow_shirt_low_MetallicSmoothness.png@
             asset inputs:opacity_tex = @Goobert_textures/Goobertlow_shirt_low_AlbedoTransparency.png@
             token outputs:adobe:surface.connect = </Goobert_low/material/shirt_low/AdobeStandardMaterial_4_0/AdobeStandardMaterial_4_0Shader.outputs:surface>
             token outputs:displacement.connect = </Goobert_low/material/shirt_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:displacement>
@@ -189,7 +291,9 @@ def "Goobert_low"
                 def Shader "UsdPreviewSurfaceShader"
                 {
                     uniform token info:id = "UsdPreviewSurface"
+                    float3 inputs:diffuseColor.connect = </Goobert_low/material/shirt_low/UsdPreviewSurface/diffuseColorTextureShader.outputs:rgb>
                     float inputs:ior = 1.5
+                    float inputs:metallic.connect = </Goobert_low/material/shirt_low/UsdPreviewSurface/metallicTextureShader.outputs:r>
                     normal3f inputs:normal.connect = </Goobert_low/material/shirt_low/UsdPreviewSurface/normalTextureShader.outputs:rgb>
                     token outputs:displacement
                     token outputs:surface
@@ -200,6 +304,28 @@ def "Goobert_low"
                     uniform token info:id = "UsdPrimvarReader_float2"
                     token inputs:varname = "st"
                     float2 outputs:result
+                }
+
+                def Shader "diffuseColorTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Goobert_low/material/shirt_low.inputs:basecolor_tex>
+                    token inputs:sourceColorSpace = "sRGB"
+                    float2 inputs:st.connect = </Goobert_low/material/shirt_low/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float3 outputs:rgb
+                }
+
+                def Shader "metallicTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Goobert_low/material/shirt_low.inputs:metallic_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Goobert_low/material/shirt_low/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:r
                 }
 
                 def Shader "normalTextureShader"
@@ -221,7 +347,9 @@ def "Goobert_low"
                 def Shader "AdobeStandardMaterial_4_0Shader"
                 {
                     uniform token info:id = "AdobeStandardMaterial_4_0"
+                    float3 inputs:baseColor.connect = </Goobert_low/material/shirt_low/AdobeStandardMaterial_4_0/baseColorTextureShader.outputs:rgb>
                     float inputs:IOR = 1.5
+                    float inputs:metallic.connect = </Goobert_low/material/shirt_low/AdobeStandardMaterial_4_0/metallicTextureShader.outputs:r>
                     normal3f inputs:normal.connect = </Goobert_low/material/shirt_low/AdobeStandardMaterial_4_0/normalTextureShader.outputs:rgb>
                     token outputs:surface
                 }
@@ -231,6 +359,28 @@ def "Goobert_low"
                     uniform token info:id = "UsdPrimvarReader_float2"
                     token inputs:varname = "st"
                     float2 outputs:result
+                }
+
+                def Shader "baseColorTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Goobert_low/material/shirt_low.inputs:basecolor_tex>
+                    token inputs:sourceColorSpace = "sRGB"
+                    float2 inputs:st.connect = </Goobert_low/material/shirt_low/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float3 outputs:rgb
+                }
+
+                def Shader "metallicTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Goobert_low/material/shirt_low.inputs:metallic_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Goobert_low/material/shirt_low/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:r
                 }
 
                 def Shader "normalTextureShader"
@@ -258,7 +408,9 @@ def "Goobert_low"
             }
         )
         {
+            asset inputs:basecolor_tex = @Goobert_textures/Goobertlow_hands_low_AlbedoTransparency.png@
             asset inputs:compositedNormalGL_tex = @Goobert_textures/Goobertlow_hands_low_Normal.png@
+            asset inputs:metallic_tex = @Goobert_textures/Goobertlow_hands_low_MetallicSmoothness.png@
             asset inputs:opacity_tex = @Goobert_textures/Goobertlow_hands_low_AlbedoTransparency.png@
             token outputs:adobe:surface.connect = </Goobert_low/material/hands_low/AdobeStandardMaterial_4_0/AdobeStandardMaterial_4_0Shader.outputs:surface>
             token outputs:displacement.connect = </Goobert_low/material/hands_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:displacement>
@@ -269,7 +421,9 @@ def "Goobert_low"
                 def Shader "UsdPreviewSurfaceShader"
                 {
                     uniform token info:id = "UsdPreviewSurface"
+                    float3 inputs:diffuseColor.connect = </Goobert_low/material/hands_low/UsdPreviewSurface/diffuseColorTextureShader.outputs:rgb>
                     float inputs:ior = 1.5
+                    float inputs:metallic.connect = </Goobert_low/material/hands_low/UsdPreviewSurface/metallicTextureShader.outputs:r>
                     normal3f inputs:normal.connect = </Goobert_low/material/hands_low/UsdPreviewSurface/normalTextureShader.outputs:rgb>
                     token outputs:displacement
                     token outputs:surface
@@ -280,6 +434,28 @@ def "Goobert_low"
                     uniform token info:id = "UsdPrimvarReader_float2"
                     token inputs:varname = "st"
                     float2 outputs:result
+                }
+
+                def Shader "diffuseColorTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Goobert_low/material/hands_low.inputs:basecolor_tex>
+                    token inputs:sourceColorSpace = "sRGB"
+                    float2 inputs:st.connect = </Goobert_low/material/hands_low/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float3 outputs:rgb
+                }
+
+                def Shader "metallicTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Goobert_low/material/hands_low.inputs:metallic_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Goobert_low/material/hands_low/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:r
                 }
 
                 def Shader "normalTextureShader"
@@ -301,7 +477,9 @@ def "Goobert_low"
                 def Shader "AdobeStandardMaterial_4_0Shader"
                 {
                     uniform token info:id = "AdobeStandardMaterial_4_0"
+                    float3 inputs:baseColor.connect = </Goobert_low/material/hands_low/AdobeStandardMaterial_4_0/baseColorTextureShader.outputs:rgb>
                     float inputs:IOR = 1.5
+                    float inputs:metallic.connect = </Goobert_low/material/hands_low/AdobeStandardMaterial_4_0/metallicTextureShader.outputs:r>
                     normal3f inputs:normal.connect = </Goobert_low/material/hands_low/AdobeStandardMaterial_4_0/normalTextureShader.outputs:rgb>
                     token outputs:surface
                 }
@@ -311,6 +489,28 @@ def "Goobert_low"
                     uniform token info:id = "UsdPrimvarReader_float2"
                     token inputs:varname = "st"
                     float2 outputs:result
+                }
+
+                def Shader "baseColorTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Goobert_low/material/hands_low.inputs:basecolor_tex>
+                    token inputs:sourceColorSpace = "sRGB"
+                    float2 inputs:st.connect = </Goobert_low/material/hands_low/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float3 outputs:rgb
+                }
+
+                def Shader "metallicTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Goobert_low/material/hands_low.inputs:metallic_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Goobert_low/material/hands_low/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:r
                 }
 
                 def Shader "normalTextureShader"
@@ -338,7 +538,9 @@ def "Goobert_low"
             }
         )
         {
+            asset inputs:basecolor_tex = @Goobert_textures/Goobertlow_pants_low_AlbedoTransparency.png@
             asset inputs:compositedNormalGL_tex = @Goobert_textures/Goobertlow_pants_low_Normal.png@
+            asset inputs:metallic_tex = @Goobert_textures/Goobertlow_pants_low_MetallicSmoothness.png@
             asset inputs:opacity_tex = @Goobert_textures/Goobertlow_pants_low_AlbedoTransparency.png@
             token outputs:adobe:surface.connect = </Goobert_low/material/pants_low/AdobeStandardMaterial_4_0/AdobeStandardMaterial_4_0Shader.outputs:surface>
             token outputs:displacement.connect = </Goobert_low/material/pants_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:displacement>
@@ -349,7 +551,9 @@ def "Goobert_low"
                 def Shader "UsdPreviewSurfaceShader"
                 {
                     uniform token info:id = "UsdPreviewSurface"
+                    float3 inputs:diffuseColor.connect = </Goobert_low/material/pants_low/UsdPreviewSurface/diffuseColorTextureShader.outputs:rgb>
                     float inputs:ior = 1.5
+                    float inputs:metallic.connect = </Goobert_low/material/pants_low/UsdPreviewSurface/metallicTextureShader.outputs:r>
                     normal3f inputs:normal.connect = </Goobert_low/material/pants_low/UsdPreviewSurface/normalTextureShader.outputs:rgb>
                     token outputs:displacement
                     token outputs:surface
@@ -360,6 +564,28 @@ def "Goobert_low"
                     uniform token info:id = "UsdPrimvarReader_float2"
                     token inputs:varname = "st"
                     float2 outputs:result
+                }
+
+                def Shader "diffuseColorTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Goobert_low/material/pants_low.inputs:basecolor_tex>
+                    token inputs:sourceColorSpace = "sRGB"
+                    float2 inputs:st.connect = </Goobert_low/material/pants_low/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float3 outputs:rgb
+                }
+
+                def Shader "metallicTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Goobert_low/material/pants_low.inputs:metallic_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Goobert_low/material/pants_low/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:r
                 }
 
                 def Shader "normalTextureShader"
@@ -381,7 +607,9 @@ def "Goobert_low"
                 def Shader "AdobeStandardMaterial_4_0Shader"
                 {
                     uniform token info:id = "AdobeStandardMaterial_4_0"
+                    float3 inputs:baseColor.connect = </Goobert_low/material/pants_low/AdobeStandardMaterial_4_0/baseColorTextureShader.outputs:rgb>
                     float inputs:IOR = 1.5
+                    float inputs:metallic.connect = </Goobert_low/material/pants_low/AdobeStandardMaterial_4_0/metallicTextureShader.outputs:r>
                     normal3f inputs:normal.connect = </Goobert_low/material/pants_low/AdobeStandardMaterial_4_0/normalTextureShader.outputs:rgb>
                     token outputs:surface
                 }
@@ -391,6 +619,28 @@ def "Goobert_low"
                     uniform token info:id = "UsdPrimvarReader_float2"
                     token inputs:varname = "st"
                     float2 outputs:result
+                }
+
+                def Shader "baseColorTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Goobert_low/material/pants_low.inputs:basecolor_tex>
+                    token inputs:sourceColorSpace = "sRGB"
+                    float2 inputs:st.connect = </Goobert_low/material/pants_low/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float3 outputs:rgb
+                }
+
+                def Shader "metallicTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Goobert_low/material/pants_low.inputs:metallic_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Goobert_low/material/pants_low/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:r
                 }
 
                 def Shader "normalTextureShader"
@@ -418,7 +668,9 @@ def "Goobert_low"
             }
         )
         {
+            asset inputs:basecolor_tex = @Goobert_textures/Goobertlow_feet_low_AlbedoTransparency.png@
             asset inputs:compositedNormalGL_tex = @Goobert_textures/Goobertlow_feet_low_Normal.png@
+            asset inputs:metallic_tex = @Goobert_textures/Goobertlow_feet_low_MetallicSmoothness.png@
             asset inputs:opacity_tex = @Goobert_textures/Goobertlow_feet_low_AlbedoTransparency.png@
             token outputs:adobe:surface.connect = </Goobert_low/material/feet_low/AdobeStandardMaterial_4_0/AdobeStandardMaterial_4_0Shader.outputs:surface>
             token outputs:displacement.connect = </Goobert_low/material/feet_low/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:displacement>
@@ -429,7 +681,9 @@ def "Goobert_low"
                 def Shader "UsdPreviewSurfaceShader"
                 {
                     uniform token info:id = "UsdPreviewSurface"
+                    float3 inputs:diffuseColor.connect = </Goobert_low/material/feet_low/UsdPreviewSurface/diffuseColorTextureShader.outputs:rgb>
                     float inputs:ior = 1.5
+                    float inputs:metallic.connect = </Goobert_low/material/feet_low/UsdPreviewSurface/metallicTextureShader.outputs:r>
                     normal3f inputs:normal.connect = </Goobert_low/material/feet_low/UsdPreviewSurface/normalTextureShader.outputs:rgb>
                     token outputs:displacement
                     token outputs:surface
@@ -440,6 +694,28 @@ def "Goobert_low"
                     uniform token info:id = "UsdPrimvarReader_float2"
                     token inputs:varname = "st"
                     float2 outputs:result
+                }
+
+                def Shader "diffuseColorTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Goobert_low/material/feet_low.inputs:basecolor_tex>
+                    token inputs:sourceColorSpace = "sRGB"
+                    float2 inputs:st.connect = </Goobert_low/material/feet_low/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float3 outputs:rgb
+                }
+
+                def Shader "metallicTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Goobert_low/material/feet_low.inputs:metallic_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Goobert_low/material/feet_low/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:r
                 }
 
                 def Shader "normalTextureShader"
@@ -461,7 +737,9 @@ def "Goobert_low"
                 def Shader "AdobeStandardMaterial_4_0Shader"
                 {
                     uniform token info:id = "AdobeStandardMaterial_4_0"
+                    float3 inputs:baseColor.connect = </Goobert_low/material/feet_low/AdobeStandardMaterial_4_0/baseColorTextureShader.outputs:rgb>
                     float inputs:IOR = 1.5
+                    float inputs:metallic.connect = </Goobert_low/material/feet_low/AdobeStandardMaterial_4_0/metallicTextureShader.outputs:r>
                     normal3f inputs:normal.connect = </Goobert_low/material/feet_low/AdobeStandardMaterial_4_0/normalTextureShader.outputs:rgb>
                     token outputs:surface
                 }
@@ -471,6 +749,28 @@ def "Goobert_low"
                     uniform token info:id = "UsdPrimvarReader_float2"
                     token inputs:varname = "st"
                     float2 outputs:result
+                }
+
+                def Shader "baseColorTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Goobert_low/material/feet_low.inputs:basecolor_tex>
+                    token inputs:sourceColorSpace = "sRGB"
+                    float2 inputs:st.connect = </Goobert_low/material/feet_low/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float3 outputs:rgb
+                }
+
+                def Shader "metallicTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Goobert_low/material/feet_low.inputs:metallic_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Goobert_low/material/feet_low/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:r
                 }
 
                 def Shader "normalTextureShader"
