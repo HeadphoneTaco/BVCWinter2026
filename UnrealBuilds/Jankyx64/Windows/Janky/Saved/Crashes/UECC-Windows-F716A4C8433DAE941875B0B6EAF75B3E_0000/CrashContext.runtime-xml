@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FGenericCrashContext>
+<RuntimeProperties>
+<CrashVersion>3</CrashVersion>
+<ExecutionGuid>1E8D2C064A5D715C50AD9EAF06589A34</ExecutionGuid>
+<CrashGUID>UECC-Windows-F716A4C8433DAE941875B0B6EAF75B3E_0000</CrashGUID>
+<IsEnsure>true</IsEnsure>
+<IsStall>false</IsStall>
+<IsAssert>false</IsAssert>
+<CrashType>Ensure</CrashType>
+<ErrorMessage>Ensure condition failed: Cast&lt;APawn&gt;(NewUpdatedComponent-&gt;GetOwner())  [File:D:\build\++UE5\Sync\Engine\Source\Runtime\Engine\Private\Components\PawnMovementComponent.cpp] [Line: 22] 
+FloatingPawnMovement must update a component owned by a Pawn
+Stack: 
+0x00007ff6991bde4b UnrealGame.exe!`TSparseArray&lt;TSetElement&lt;TTuple&lt;FKey,TArray&lt;TSharedPtr&lt;FInputActionBinding,1&gt;,TSizedDefaultAllocator&lt;32&gt; &gt; &gt; &gt;,TSparseArrayAllocator&lt;TSizedDefaultAllocator&lt;32&gt;,FDefaultBitArrayAllocator&gt; &gt;::TRangedForIterator::operator!=&apos;::`2&apos;::&lt;lambda_1&gt;::operator()() []
+0x00007ff692f564b8 UnrealGame.exe!UPawnMovementComponent::SetUpdatedComponent() []
+0x00007ff692f449d0 UnrealGame.exe!UMovementComponent::OnRegister() []
+0x00007ff692e4afc5 UnrealGame.exe!UActorComponent::ExecuteRegisterEvents() []
+0x00007ff692e9de47 UnrealGame.exe!UActorComponent::RegisterComponentWithWorld() []
+0x00007ff693d51ad4 UnrealGame.exe!USimpleConstructionScript::RegisterInstancedComponent() []
+0x00007ff6928cf63d UnrealGame.exe!AActor::ExecuteConstruction() []
+0x00007ff6928d3798 UnrealGame.exe!AActor::FinishSpawning() []
+0x00007ff6932c0105 UnrealGame.exe!UGameplayStatics::FinishSpawningActor() []
+0x00007ff6933126eb UnrealGame.exe!UGameplayStatics::execFinishSpawningActor() []
+0x00007ff68cdaba0a UnrealGame.exe!UObject::execCallMathFunction() []
+0x00007ff68cdae898 UnrealGame.exe!UObject::execLetObj() []
+0x00007ff68cd8ab18 UnrealGame.exe!ProcessLocalScriptFunction() []
+0x00007ff68cd64f79 UnrealGame.exe!ProcessScriptFunction&lt;void (__cdecl*)(UObject * __ptr64,FFrame &amp; __ptr64,void * __ptr64)&gt;() []
+0x00007ff68cd6d2f2 UnrealGame.exe!`TThreadSingleton&lt;FDeferredScriptTracker&gt;::Get&apos;::`2&apos;::&lt;lambda_1&gt;::operator()() []
+0x00007ff68cd8a6b4 UnrealGame.exe!ProcessLocalFunction() []
+0x00007ff68cd8ab18 UnrealGame.exe!ProcessLocalScriptFunction() []
+0x00007ff68cd8a3d3 UnrealGame.exe!UObject::ProcessInternal() []
+0x00007ff68ca56cc9 UnrealGame.exe!UFunction::Invoke() []
+0x00007ff68cd88e97 UnrealGame.exe!UObject::ProcessEvent() []
+0x00007ff6928eb006 UnrealGame.exe!AActor::ProcessEvent() []
+0x00007ff6928c0ab8 UnrealGame.exe!AActor::BeginPlay() []
+0x00007ff6928ca35b UnrealGame.exe!AActor::DispatchBeginPlay() []
+0x00007ff69432e071 UnrealGame.exe!AWorldSettings::NotifyBeginPlay() []
+0x00007ff6932d2761 UnrealGame.exe!AGameStateBase::HandleBeginPlay() []
+0x00007ff6941f92ad UnrealGame.exe!UWorld::BeginPlay() []
+0x00007ff6943a9dbe UnrealGame.exe!UEngine::LoadMap() []
+0x00007ff69436039d UnrealGame.exe!UEngine::Browse() []
+0x00007ff693266a46 UnrealGame.exe!UGameInstance::StartGameInstance() []
+0x00007ff693266478 UnrealGame.exe!UGameEngine::Start() []
+0x00007ff694626724 UnrealGame.exe!FEngineLoop::Init() []
+0x00007ff69463ec0f UnrealGame.exe!GuardedMain() []
+0x00007ff69463edba UnrealGame.exe!GuardedMainWrapper() []
+0x00007ff694641be8 UnrealGame.exe!LaunchWindowsStartup() []
+0x00007ff69464f1e4 UnrealGame.exe!WinMain() []
+0x00007ff698e845aa UnrealGame.exe!__scrt_common_main_seh() []
+0x00007ff8c03d14bc KERNEL32.DLL!UnknownFunction []
+0x00007ff8c03515e8 KERNEL32.DLL!UnknownFunction []
+0x00007ff8c0e2c410 ntdll.dll!UnknownFunction []
+</ErrorMessage>
+<CrashReporterMessage></CrashReporterMessage>
+<CrashReporterMessage>Attended</CrashReporterMessage>
+<ProcessId>12116</ProcessId>
+<SecondsSinceStart>0</SecondsSinceStart>
+<IsInternalBuild>false</IsInternalBuild>
+<IsPerforceBuild>false</IsPerforceBuild>
+<IsWithDebugInfo>false</IsWithDebugInfo>
+<IsSourceDistribution>false</IsSourceDistribution>
+<GameName>UE-Janky</GameName>
+<ExecutableName>UnrealGame</ExecutableName>
+<BuildConfiguration>Development</BuildConfiguration>
+<GameSessionID></GameSessionID>
+<PlatformName>Windows</PlatformName>
+<PlatformFullName>Windows</PlatformFullName>
+<PlatformNameIni>Windows</PlatformNameIni>
+<EngineMode>Game</EngineMode>
+<EngineModeEx>Unset</EngineModeEx>
+<DeploymentName></DeploymentName>
+<EngineVersion>5.6.1-44394996+++UE5+Release-5.6</EngineVersion>
+<EngineCompatibleVersion>5.6.1-44394996+++UE5+Release-5.6</EngineCompatibleVersion>
+<CommandLine> ..\..\..\Janky\Janky.uproject</CommandLine>
+<LanguageLCID>9</LanguageLCID>
+<AppDefaultLocale>en-CA</AppDefaultLocale>
+<BuildVersion>++UE5+Release-5.6-CL-44394996</BuildVersion>
+<Symbols>**UE5*Release-5.6-CL-44394996-Win64-Development</Symbols>
+<IsUERelease>false</IsUERelease>
+<IsRequestingExit>false</IsRequestingExit>
+<UserName></UserName>
+<BaseDir>C:/Users/micha/GitHub/BVC-Winter-2026/UnrealBuilds/Jankyx64/Windows/Engine/Binaries/Win64/</BaseDir>
+<RootDir>C:/Users/micha/GitHub/BVC-Winter-2026/UnrealBuilds/Jankyx64/Windows/</RootDir>
+<MachineId>F40C422A4458D2B629A6BF957A5C6DB4</MachineId>
+<LoginId>f40c422a4458d2b629a6bf957a5c6db4</LoginId>
+<EpicAccountId>dc06fe7c6aa94ce0bed4e7f10960dbe9</EpicAccountId>
+<SourceContext></SourceContext>
+<UserDescription></UserDescription>
+<UserActivityHint></UserActivityHint>
+<CrashDumpMode>0</CrashDumpMode>
+<GameStateName></GameStateName>
+<Misc.NumberOfCores>10</Misc.NumberOfCores>
+<Misc.NumberOfCoresIncludingHyperthreads>10</Misc.NumberOfCoresIncludingHyperthreads>
+<Misc.Is64bitOperatingSystem>1</Misc.Is64bitOperatingSystem>
+<Misc.CPUVendor>AuthenticAMD</Misc.CPUVendor>
+<Misc.CPUBrand>                          Virtual CPU @ 3.41GHz</Misc.CPUBrand>
+<Misc.PrimaryGPUBrand>Qualcomm(R) Adreno(TM) X1-85 GPU</Misc.PrimaryGPUBrand>
+<Misc.OSVersionMajor>Windows 11 (24H2) [10.0.26200.8246]</Misc.OSVersionMajor>
+<Misc.OSVersionMinor></Misc.OSVersionMinor>
+<Misc.AnticheatProvider></Misc.AnticheatProvider>
+<MemoryStats.TotalPhysical>16760201216</MemoryStats.TotalPhysical>
+<MemoryStats.TotalVirtual>29735264256</MemoryStats.TotalVirtual>
+<MemoryStats.PageSize>4096</MemoryStats.PageSize>
+<MemoryStats.TotalPhysicalGB>16</MemoryStats.TotalPhysicalGB>
+<MemoryStats.AvailablePhysical>3517726720</MemoryStats.AvailablePhysical>
+<MemoryStats.AvailableVirtual>13153779712</MemoryStats.AvailableVirtual>
+<MemoryStats.UsedPhysical>1555587072</MemoryStats.UsedPhysical>
+<MemoryStats.PeakUsedPhysical>1572642816</MemoryStats.PeakUsedPhysical>
+<MemoryStats.UsedVirtual>1485598720</MemoryStats.UsedVirtual>
+<MemoryStats.PeakUsedVirtual>1503711232</MemoryStats.PeakUsedVirtual>
+<MemoryStats.bIsOOM>0</MemoryStats.bIsOOM>
+<MemoryStats.OOMAllocationSize>0</MemoryStats.OOMAllocationSize>
+<MemoryStats.OOMAllocationAlignment>0</MemoryStats.OOMAllocationAlignment>
+<NumMinidumpFramesToIgnore>0</NumMinidumpFramesToIgnore>
+<CallStack></CallStack>
+<PCallStack></PCallStack>
+<PCallStackHash></PCallStackHash>
+</RuntimeProperties>
+<PlatformProperties>
+<PlatformIsRunningWindows>1</PlatformIsRunningWindows>
+<PlatformIsRunningWine>false</PlatformIsRunningWine>
+<PlatformSupportsWindows11>true</PlatformSupportsWindows11>
+<IsRunningOnBattery>true</IsRunningOnBattery>
+<IsUsingBatterySaver>false</IsUsingBatterySaver>
+<PlatformCallbackResult>0</PlatformCallbackResult>
+<CrashTrigger>0</CrashTrigger>
+</PlatformProperties>
+<EngineData>
+<MatchingDPStatus>WindowsNo errors</MatchingDPStatus>
+<RHI.IntegratedGPU>true</RHI.IntegratedGPU>
+<RHI.D3DDebug>false</RHI.D3DDebug>
+<RHI.DRED>false</RHI.DRED>
+<RHI.DREDMarkersOnly>false</RHI.DREDMarkersOnly>
+<RHI.DREDContext>false</RHI.DREDContext>
+<RHI.RHIName>D3D12</RHI.RHIName>
+<RHI.AdapterName>Qualcomm(R) Adreno(TM) X1-85 GPU</RHI.AdapterName>
+<RHI.FeatureLevel>SM6</RHI.FeatureLevel>
+<RHI.GPUVendor>Unknown</RHI.GPUVendor>
+<RHI.DeviceId>36334330</RHI.DeviceId>
+<DeviceProfile.Name>Windows</DeviceProfile.Name>
+</EngineData>
+<GameData>
+</GameData>
+</FGenericCrashContext>
